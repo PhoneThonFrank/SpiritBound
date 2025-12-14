@@ -31,7 +31,7 @@ async function tryExportUserData(maxAttempts = 5, delayMs = 500) {
                    renderEnrolledCourses();
         }
         else {
-            window.location.href = "../courses.html";
+            window.location.href = "./courses.html";
         }
         
  
@@ -105,7 +105,7 @@ document.addEventListener('click', function (event) {
 
     const buttonId = btn.id;
 
-    window.location.href = `../lesson.html#${buttonId}`;
+    window.location.href = `./lesson.html#${buttonId}`;
 });
 
 const contactUsModal = new bootstrap.Modal(document.getElementById('contactUsModal'));
