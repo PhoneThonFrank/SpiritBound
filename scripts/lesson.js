@@ -236,7 +236,7 @@ document.getElementById('exitButton').addEventListener('click', function () {
         document.getElementById('loadingText').innerText = "Exiting Learning Mode";
         customLoadingScreen.style.display = "flex";
         setTimeout(() => {
-            window.location.href = "../mycourses.html";
+            window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
         }, 3000);
     }
 });
