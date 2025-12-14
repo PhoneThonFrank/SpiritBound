@@ -1,0 +1,13 @@
+.course-section{
+    background-color: white;
+    min-height: 100vh;
+    padding-bottom: 50px !important;
+}
+
+#searchCourseInput::placeholder{
+    color: #76ab4d !important;
+}
+
+.custom-shape-divider-top-1764521610 .shape-fill {
+    fill: white !important;
+}

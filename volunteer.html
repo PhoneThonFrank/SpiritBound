@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiritBound - Volunteer</title>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/images/SpiritBound.png" type="image/x-icon">
+
+    <!-- Bootstrap CDN CSS Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="./navbar/navbar.css">
+    <link rel="stylesheet" href="./css/multi-step-form.css">
+    <link rel="stylesheet" href="./css/sticky-btn.css">
+    <link rel="stylesheet" href="./css/ai-chatbot.css">
+
+    <!-- Bootstrap Icon CDN Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Designs -->
+    <link rel="stylesheet" href="./css/designs.css">
+    <!-- Volunteer CSS -->
+    <link rel="stylesheet" href="./css/volunteer.css">
+
+
+    <!-- Essentials -->
+    <!-- Navbar -->
+    <link rel="stylesheet" href="./navbar/navbar.css">
+    <!-- Footer -->
+    <link rel="stylesheet" href="footer/footer.css">
+
+</head>
+
+<body>
+
+    <!-- Cookies Offcanvas -->
+    <div class="offcanvas offcanvas-bottom" style="background-color: white !important;" tabindex="-1"
+        id="cookiesOffcanvas" aria-labelledby="cookiesOffcanvasLabel">
+        <div class="offcanvas-header text-success">
+            <h5 class="offcanvas-title" id="cookiesOffcanvasLabel">Cookies 🍪</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+        </div>
+        <div class="offcanvas-body text-success">
+            <div>
+                We use cookies 🍪 for better experience.
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-success" data-bs-dismiss="offcanvas">Okay!</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Alert Toast -->
+    <div class="toast-container position-static position-fixed top-0 end-0" id="toastContainer">
+    </div>
+
+    <!-- Intro Multi-step Modal -->
+    <div class="modal modal-lg fade " data-bs-backdrop="static" data-bs-keyboard="false" id="introMultiStepModal"
+        tabindex="-1" aria-labelledby="introMultiStepModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered m-auto modal-fullscreen-sm-down">
+            <div class="modal-content position-relative multi-step-form-modal"
+                style="background-color: white !important; color: #88c659 !important;">
+                <div class="modal-header">
+                    <h3 id="multi-step-title" class="d-none"></h3>
+                    <div class="progress w-100" style="border-radius: 1.5rem;" role="progressbar"
+                        aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" id="multi-step-progress"
+                            style="background-color: #88c659; border-radius: 1.5rem;"></div>
+                    </div>
+                </div>
+                <div class="modal-body px-2 text-center py-5">
+
+                    <div class="multi-step-container multi-step-con-whole"></div>
+
+                    <div id="multi-step-1">
+                        <h1>Welcome to SpiritBound</h1>
+                        <p class="mt-4">Before you start your journey with us, allow us to ask you a few more questions
+                            to provide
+                            you a personalized learning experience.</p>
+                        <!-- <button class="btn btn-success btn-lg">Start</button> -->
+                    </div>
+
+                    <div id="multi-step-2">
+                        <label for="location">Which region do you live in?</label>
+                        <div class="d-flex w-75 m-auto">
+                            <select id="location" class="form-select text-success mt-4 w-50">
+                                <option value="">--State/Division--</option>
+                                <option value="Ayeyarwady Region">Ayeyarwady Region</option>
+                                <option value="Bago Region">Bago Region</option>
+                                <option value="Chin State">Chin State</option>
+                                <option value="Kachin State">Kachin State</option>
+                                <option value="Kayah State">Kayah State</option>
+                                <option value="Kayin State">Kayin State</option>
+                                <option value="Magway Region">Magway Region</option>
+                                <option value="Mandalay Region">Mandalay Region</option>
+                                <option value="Mon State">Mon State</option>
+                                <option value="Naypyidaw Union Territory">Naypyidaw Union Territory</option>
+                                <option value="Rakhine State">Rakhine State</option>
+                                <option value="Sagaing Region">Sagaing Region</option>
+                                <option value="Shan State">Shan State</option>
+                                <option value="Taninthayi Region">Taninthayi Region</option>
+                                <option value="Yangon Region">Yangon Region</option>
+                            </select>
+                            <input type="text" class="form-control mt-4 ms-2 text-success"
+                                placeholder="Township (Optional)" id="township-input">
+                        </div>
+
+                    </div>
+
+                    <div id="multi-step-3">
+                        <label for="how-find">How did you find us?</label>
+                        <select class="form-select text-success mt-4 w-75 m-auto" id="how-find">
+                            <option value="">--Select--</option>
+                            <option value="social-media">Social Media (Facebook, X)</option>
+                            <option value="search-engine">Search Engine (Google, Bing)</option>
+                            <option value="friends">Friends</option>
+                            <option value="others">Other</option>
+                        </select>
+                    </div>
+
+                    <div id="multi-step-4">
+                        <label for="experience-level">Please describe your skill (For park related activities)</label>
+                        <select class="form-select text-success mt-4 w-75 m-auto" id="experience-level">
+                            <option value="">--Select--</option>
+                            <option value="beginner">Beginner (Know basic skills)</option>
+                            <option value="intermediate">Intermediate (Comfortable)</option>
+                            <option value="advanced">Advanced (Can use complex concepts)</option>
+                        </select>
+                    </div>
+
+                    <div id="multi-step-5">
+                        <h1>Thank You!</h1>
+                        <p class="mt-4">Thank you for answering. Please make sure that all the information you entered
+                            are correct. This helps us ensure that you get the best experience.</p>
+                        <!-- <button class="btn btn-success btn-lg">Finish</button> -->
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button class="btn btn-secondary" disabled id="multi-step-back-btn">Previous Question</button>
+                    <button class="btn btn-success" id="multi-step-start-btn">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Loading Modal -->
+    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="loadingModal" tabindex="-1"
+        aria-labelledby="loadingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered m-auto" style="height: 400px; width: 250px;">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+
+                    <!-- <div class="spinner-border mx-auto my-3" style="width: 80px; height: 80px;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div> -->
+
+                    <div class="loader m-auto mt-3">
+                        <div class="bar bar1"></div>
+                        <div class="bar bar2"></div>
+                        <div class="bar bar3"></div>
+                        <div class="bar bar4"></div>
+                        <div class="bar bar5"></div>
+                        <div class="bar bar6"></div>
+                        <div class="bar bar7"></div>
+                        <div class="bar bar8"></div>
+                        <div class="bar bar9"></div>
+                        <div class="bar bar10"></div>
+                        <div class="bar bar11"></div>
+                        <div class="bar bar12"></div>
+                    </div>
+
+                    <!-- <h2>Loading</h2> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Navbar Essentials -->
+    <!-- Navbar Essentials -->
+    <!-- My lovely navbar -->
+    <nav class="main-navbar container-fluid">
+
+        <div class="row justify-content-center  px-2 nav-over-container-main "
+            style="height: 100%; z-index: 1000 !important; width: 100vw; height: 50px;">
+            <div class="col-4 col-md-2 p-0 me-2" style="height: 100%;">
+                <div class=" d-flex justify-content-center align-items-center brand-bg ps-5 ps-sm-2">
+                    <a href="./home.html" class="text-decoration-none">
+                        <h3 class="text-success mt-2 rounded px-1">SpiritBound</h3>
+                    </a>
+                    <!-- <img src="./assets/images/logo.png" alt="SpiritBound" class="img-fluid"
+                        style="max-height: 70px;"> -->
+                    <!-- <div class="ms-1 fs-5">SpiritBound</div> -->
+                </div>
+            </div>
+            <div class="col-7 center-stage-navbar p-0 px-1" style="height: 100%;">
+                <div class="nav-over-container bg-white">
+                    <div class="d-flex justify-content-center align-items-center nav-padding-con h-100">
+                        <ul class="nav justify-content-center align-items-center h-100">
+                            <li class="nav-item">
+                                <a class="nav-link link-success active" aria-current="page"
+                                    href="./parks.html">Parks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-success" href="./courses.html">Courses</a>
+                            </li>
+
+                            <li class="nav-item d-none">
+                                <a class="nav-link link-success" href="./announcements.html">Events
+                                </a>
+                            </li>
+
+                            <!-- <li class="nav-item">
+                                <a class="nav-link link-success" href="./about-us.html">About</a>
+                            </li> -->
+
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link link-success dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Events
+                                </a>
+
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./announcements.html">Announcements</a></li>
+                                    <li><a class="dropdown-item" href="./volunteer.html">Volunteer</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown d-none">
+                                <a class="nav-link link-success dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Learn
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./mycourses.html">My Courses</a></li>
+                                    <li><a class="dropdown-item" href="./courses.html">New Courses</a></li>
+                                    <!-- <li>
+                                        <hr class="dropdown-divider d-none">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">New Courses</a></li> -->
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link link-success dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    About
+                                </a>
+
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./about-us.html">Our Team</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider d-none">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#contactUsModal" type="button"
+                                            data-bs-toggle="modal">Contact</a></li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                        <button class="btn btn-success" id="nav-search-btn" style="display: none !important;"><i
+                                class="bi bi-search"></i></button>
+                        <div class="input-group align-items-center" id="nav-search-group"
+                            style="width: 250px; display: none !important;">
+                            <input type="text" class="form-control desktop-form-search" placeholder="Search..."
+                                style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; color: #88c659 !important; background-color: white !important;">
+                            <button class="btn btn-success"
+                                style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"><i
+                                    class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-6 col-sm-5 col-md-2 p-0" style="height: 100%;">
+                <div class="nav-over-container right-nav-bg d-flex justify-content-center align-items-center h-100 p-0">
+                    <ul class="nav justify-content-center align-items-center h-100 p-0">
+                        <li class="nav-item dropdown">
+                            <!-- <a class="nav-link dropdown-toggle d-none d-sm-inline" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Account
+                            </a> -->
+                            <a class="btn btn-lg btn-success mx-1 dropdown-toggle h-100" id="navPfp" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person"></i>
+                                <img src="./assets/images/profile/cow.png" alt="profile" width="40px"
+                                    style="border-radius: 1.5rem; display: none;">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#registration" role="button" data-bs-toggle="modal"
+                                        id="signInText">Login</a></li>
+                                <li><a class="dropdown-item" href="#registration" role="button" data-bs-toggle="modal"
+                                        id="registerText">Register</a></li>
+                                <li><button disabled class="dropdown-item fw-bold" id="usernameText"></button></li>
+                                <li><a class="dropdown-item" href="#" id="signOutText">Sign Out</a></li>
+                                <li id="authDropDownDivider">
+                                    <hr class="dropdown-divider d-none">
+                                </li>
+                                <li><a class="dropdown-item" href="./mycourses.html" id="myProgressText">My Progress</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./profile.html" id="profileText">Profile</a></li>
+                                <!-- <li id="authDropDownDivider">
+                                    <hr class="dropdown-divider d-none">
+                                </li> -->
+                                <!-- <div id="google_translate_element"></div>
+                                <li>
+                                    <select id="custom-language-selector" class="form-select w-75 m-auto">
+                                        <option value="en">English 🇬🇧</option>
+                                        <option value="my">Burmese 🇲🇲</option>
+                                    </select>
+                                </li> -->
+                            </ul>
+                        </li>
+                        <button class="mx-1 d-inline d-md-none btn btn-lg btn-success" type="button"
+                            data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
+                            aria-controls="navbarOffcanvas">
+                            <small class="bi bi-layout-text-sidebar"></small>
+                        </button>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- For blurring navbar background -->
+        <div class="row justify-content-center nav-blur-main-container px-2 d-none" style="height: 100%;">
+            <div class="col-4 col-md-2 p-0" style="height: 100%;">
+                <div
+                    class="nav-over-container nav-over-blur brand-bg d-none d-flex justify-content-center align-items-center">
+                </div>
+            </div>
+            <div class="col-7 center-stage-navbar p-0 px-1" style="height: 100%;">
+                <div class="nav-over-container nav-over-blur">
+                </div>
+            </div>
+            <div class="col-6 d-none col-sm-5 col-md-2 p-0" style="height: 100%;">
+                <div
+                    class="nav-over-container right-nav-bg nav-over-blur d-flex justify-content-center align-items-center">
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Navbar Offcanvas -->
+    <div class="offcanvas offcanvas-end" style="width: 100vw; border-radius: 0 !important;" tabindex="-1"
+        id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+        <div class="offcanvas-header d-flex justify-content-between">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+            <button type="button" class="btn btn-danger close-btn" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                    class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="input-group mb-3 align-items-center d-none">
+                <input id="mobileNavSearch" type="text" class="form-control" placeholder="Search..."
+                    style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
+                <button class="btn btn-success"
+                    style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"><i
+                        class="bi bi-search"></i></button>
+            </div>
+
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link link-light active" aria-current="page" href="./home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-light active" aria-current="page" href="./parks.html">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-light" href="./courses.html">Courses</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link link-light" href="./announcements.html">Announcements</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link link-light" href="./volunteer.html">Volunteer</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                                <a class="nav-link link-light" href="./about-us.html">About</a>
+                            </li> -->
+
+
+                <li class="nav-item dropdown d-none">
+                    <a class="nav-link link-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Learn
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./mycourses.html">My Courses</a></li>
+                        <li><a class="dropdown-item" href="./courses.html">New Courses</a></li>
+                        <!-- <li>
+                                        <hr class="dropdown-divider d-none">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">New Courses</a></li> -->
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link link-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        About
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./about-us.html">Our Team</a></li>
+                        <li>
+                            <hr class="dropdown-divider d-none">
+                        </li>
+                        <li><a class="dropdown-item" href="#contactUsModal" type="button"
+                                data-bs-toggle="modal">Contact</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-between">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Search</h1>
+                    <button type="button" class="btn btn-danger close-btn" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3 align-items-center">
+                        <input type="text" class="form-control" placeholder="Search..."
+                            style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
+                        <button class="btn btn-success"
+                            style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"><i
+                                class="bi bi-search"></i></button>
+                    </div>
+                    <div class="input-group" style="overflow: hidden; border-radius: 1.5rem;">
+                        <div class="input-group-text">Search Through:</div>
+                        <select class="form-select"
+                            style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"
+                            id="">
+                            <option value="">Courses</option>
+                            <option value="">Parks</option>
+                            <option value="">Posts</option>
+                            <option value="">Events</option>
+                        </select>
+                    </div>
+
+                    <div class="result-card my-3 d-flex">
+                        <div class="result-image me-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+                                alt="Result Image" class="img-fluid rounded" style="max-width: 100px;">
+                        </div>
+                        <div class="result-details">
+                            <h5 class="result-title">Result Title</h5>
+                            <p class="result-description">This is a brief description of the search result.</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card my-3 d-flex">
+                        <div class="result-image me-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+                                alt="Result Image" class="img-fluid rounded" style="max-width: 100px;">
+                        </div>
+                        <div class="result-details">
+                            <h5 class="result-title">Result Title</h5>
+                            <p class="result-description">This is a brief description of the search result.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal registration-modal fade" id="registration" tabindex="-1" aria-labelledby="registrationLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px;">
+            <div class="modal-content position-relative">
+                <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                    style="z-index: 100;" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                <div class="modal-body p-0">
+
+
+                    <div class="glass-container w-100" id="glassContainer">
+                        <div class="image-panel">
+                            <video class="video-background" autoplay muted loop playsinline id="backgroundVideo"
+                                poster="./assets/images/registration-vid-fallback.png">
+                                <source src="./assets/videos/registration-bg.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <img class="image-fallback" src="./assets/images/registration-vid-fallback.png"
+                                alt="Background fallback">
+
+                            <div class="login-image-content text-center">
+                                <h2>Hello, Friend!</h2>
+                                <p>Enter your personal details and start your journey with us</p>
+                                <button class="btn btn-outline" id="showRegisterBtn">Register</button>
+                            </div>
+                            <div class="register-image-content text-center">
+                                <h2>Welcome Back!</h2>
+                                <p>To keep connected with us please login with your personal info</p>
+                                <button class="btn btn-outline" id="showLoginBtn">Login</button>
+                            </div>
+                        </div>
+
+                        <div class="form-panel">
+                            <div class="form-content">
+                                <div class="login-form">
+                                    <h2 class="form-title">Login Here</h2>
+                                    <form id="loginForm" novalidate>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" id="loginEmail"
+                                                placeholder="Email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" id="loginPassword"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="remember-forgot">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                                <label class="form-check-label" for="rememberMe">
+                                                    Remember me
+                                                </label>
+                                            </div>
+                                            <a href="#passwordResetModal" role="button" data-bs-toggle="modal">Forgot
+                                                password?</a>
+                                        </div>
+                                        <button type="submit" class="btn btn-lg w-100 btn-success">Login</button>
+                                    </form>
+
+                                    <div class="social-icons social-sign">
+                                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-google"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="register-form">
+                                    <h2 class="form-title">Register Here</h2>
+                                    <form id="registerForm" novalidate>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" id="registerName"
+                                                placeholder="Full Name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" id="registerEmail"
+                                                placeholder="Email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" id="registerPassword"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" id="registerConfirmPassword"
+                                                placeholder="Confirm Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-lg w-100 btn-success">Register </button>
+                                    </form>
+
+                                    <div class="social-icons social-sign">
+                                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-google"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar Essentials End -->
+
+
+    <!-- Password Reset Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="passwordResetModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="passwordResetModalLabel">Reset Password</h1>
+                    <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                        style="z-index: 100;" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center d-block w-100 mt-2">We will send you a password reset link</p>
+                    <input type="email" class="form-control" id="passwordResetEmail" placeholder="Enter email">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="passwordResetLinkSendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Contact Us Modal -->
+    <!-- Modal -->
+    <div class="modal contact-modal fade" id="contactUsModal" tabindex="-1" aria-labelledby="contactUsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px;">
+            <div class="modal-content position-relative">
+                <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                    style="z-index: 100;" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                <div class="modal-body p-0">
+
+                    <div class="glass-container w-100" id="glassContainer">
+
+                        <div class="image-panel">
+                            <video class="video-background" autoplay muted loop playsinline id="backgroundVideo"
+                                poster="./assets/images/registration-vid-fallback.png">
+                                <source src="./assets/videos/registration-bg.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <img class="image-fallback" src="./assets/images/registration-vid-fallback.png"
+                                alt="Background fallback">
+
+                            <div class="login-image-content text-center">
+                                <h2>Contact Us</h2>
+                                <p>We’d love to hear from you. Send us a message and we’ll get back to you soon.</p>
+                            </div>
+
+                            <div class="social-icons social-sign mt-3 d-none">
+                                <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="social-icon" aria-label="Google"><i class="bi bi-google"></i></a>
+                                <a href="#" class="social-icon" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" class="social-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            </div>
+                            <small><i class="bi bi-geo-alt-fill me-1"></i> No. 635/J, Yoe Ma Yeik Thar (Pyae Road), 2nd
+                                Ward, Kamayut Township, Yangon</small>
+
+                        </div>
+
+
+                        <div class="form-panel">
+                            <div class="form-content">
+                                <div class="contact-form">
+                                    <h2 class="form-title" id="contactUsLabel">Get In Touch</h2>
+                                    <form id="contactForm" novalidate>
+                                        <div class="mb-3">
+
+                                            <input type="text" class="form-control" id="contactName" name="name"
+                                                placeholder="Name" required minlength="2" />
+
+                                        </div>
+
+                                        <div class="mb-3">
+
+                                            <input type="email" class="form-control" id="contactEmail" name="email"
+                                                placeholder="Email" required />
+
+                                        </div>
+
+                                        <div class="mb-3">
+
+                                            <input type="text" class="form-control" id="contactSubject" name="subject"
+                                                placeholder="Subject" required minlength="3" />
+
+                                        </div>
+
+                                        <div class="mb-3">
+
+                                            <textarea class="form-control" id="contactMessage" name="message" rows="5"
+                                                placeholder="Write your message here..." required
+                                                minlength="10"></textarea>
+
+                                        </div>
+
+                                        <button type="submit" class="btn btn-lg w-100 btn-success"
+                                            id="contactSubmitBtn">Send Message</button>
+                                    </form>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ai Offcanvas -->
+    <div class="offcanvas offcanvas-end"
+        style="background-color: white !important; padding: 0 !important; border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; width: 50vw;"
+        tabindex="-1" id="aiBotOffcanvas" aria-labelledby="aiBotOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-success" id="aiBotOffcanvasLabel">Assistant</h5>
+            <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                style="z-index: 100;" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <div class="card h-100" style="border: none !important;">
+                <div class="card-body aiMessagesCon" id="aiMessagesCon">
+
+                    <!-- <div class="d-flex justify-content-start my-2">
+                        <button class="btn btn-secondary text-start" type="button">
+                            <p class="fw-bold">AI</p>
+                            <p>Hello there, how can I help you today?</p>
+                        </button>
+                    </div>
+
+                    <div class="d-flex justify-content-end my-2">
+                        <button class="btn btn-success text-end" type="button">
+                            <p class="fw-bold">You</p>
+                            <p>What is 1+1?</p>
+                        </button>
+                    </div> -->
+
+                </div>
+                <div class="card-footer">
+                    <form id="aiMessageForm">
+                        <div class="input-group">
+                            <button type="button" class="btn btn-success me-2" id="aiClearChatButton"><i
+                                    class="bi bi-clock"></i></button>
+                            <input type="text" class="form-control text-success" id="aiInput"
+                                style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;"
+                                placeholder="Enter your message..." autocomplete="off">
+                            <button class="btn btn-success"
+                                style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"
+                                type="submit"><i class="bi bi-send"></i></button>
+                        </div>
+                        <small class="text-center d-block text-success my-2">AI can make mistakes. Please double
+                            check.</small>
+                    </form>
+                    <div class="alert text-success-dark text-center" style="display: none;" id="signInToPuterMsgBox">
+                        Our AI Chatbot API is provided freely by Puter.JS Open Source project. In order to chat with AI,
+                        please sign in to Puter.JS. <br>
+                        <button class="btn btn-success mt-3" id="signInToPuter">Sign in to Puter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="chatToggleBtn" data-bs-toggle="offcanvas" data-bs-target="#aiBotOffcanvas"
+        class="fixed-btn btn btn-success fab-item" title="Open AI Assistant">
+        <i class="bi bi-robot"></i>
+    </button>
+
+    <button id="scrollToTopBtn" class="fixed-btn btn btn-success fab-item scrolled-only" title="Scroll to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <button id="stickyActionButton" class="fixed-btn btn btn-success z-[1002]" title="Toggle Menu Actions">
+        <i id="fabIcon" class="bi bi-list"></i>
+    </button>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="registerAsVolunteer" tabindex="-1" aria-labelledby="registerAsVolunteerLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: white !important;">
+                <div class="modal-header text-success">
+                    <h1 class="modal-title fs-5" id="registerAsVolunteerLabel">Volunteer Registration</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-success text-center" id="volunteerModalContent">
+                    <div class="d-none" id="registerAsVolunteerCon">
+                        <p class="fw-bold">Do you wish to register as a volunteer?</p>
+                        <p>Once registered, you will receive a "Volunteer" badge next to your profile, and you are
+                            officially allowed to join our volunteering sessions.</p>
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-success" id="joinVolunteerBtn">Register</button>
+                    </div>
+                    <div class="d-none" id="accountNeededCon">
+                        <p class="fw-bold">You need an account!</p>
+                        <p>In order to register as a volunteer, create an account <a href="#registration"
+                                class="link-success" type="button" data-bs-toggle="modal">here</a>!</p>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#registration">Create an account</button>
+                    </div>
+                    <div class="d-none" id="alreadyVolunteerCon">
+                        <p class="fw-bold">You are already a volunteer!</p>
+                        <p>You can check the <a href="./announcements.html" class="link-success">Announcements</a> page
+                            for volunteering sessions.</p>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donation success modal -->
+    <div class="modal fade" id="donationSuccessModal" tabindex="-1" aria-labelledby="registerAsVolunteerLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: white !important;">
+                <div class="modal-header text-success">
+                    <h1 class="modal-title fs-5" id="registerAsVolunteerLabel">Donation Successful!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-success text-center" id="volunteerModalContent">
+                    <h1 class="text-center text-success display-3"><i class="bi bi-check-circle-fill"></i></h1>
+                    <h3>Donation Successful!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="main-container bg-white">
+        <div style="height: 70px;"></div>
+        <div class="container py-4 text-success">
+
+            <div id="homePage">
+                <div class="pt-4 pb-2 text-start">
+                    <h1 class="display-6 fw-bolder mb-2 text-dark-accent" style="letter-spacing: -0.05em;">
+                        Become Volunteer
+                    </h1>
+                </div>
+
+                <!-- Hero Section with Carousel -->
+                <div id="hero-section" class="rounded-3 overflow-hidden shadow-lg mb-5 bg-secondary">
+
+                    <div id="hero-carousel" class="carousel slide h-100" data-bs-ride="carousel">
+
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+
+                        <div class="carousel-inner h-100">
+                            <div class="carousel-item active h-100" data-bs-interval="5000">
+                                <img src="https://students.1fbusa.com/hubfs/25%20Ways%20to%20Volunteer%20in%20Your%20Community.jpg"
+                                    alt="Volunteers" class="d-block w-100 h-100">
+                            </div>
+                            <div class="carousel-item h-100" data-bs-interval="5000">
+                                <img src="https://cdn.prod.website-files.com/633ba7c875e84d0d18d5d77d/65fb2ac06abe3639bac499f0_volunteer%20work.jpeg"
+                                    alt="Volunteers" class="d-block w-100 h-100">
+                            </div>
+                            <div class="carousel-item h-100" data-bs-interval="5000">
+                                <img src="https://www.ymca.org/sites/default/files/2025-07/2025_06_10_youthgovcon_2068.jpg"
+                                    alt="Volunteers" class="d-block w-100 h-100">
+                            </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <!-- Text overlay on the carousel -->
+                    <div
+                        class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-4 p-md-5">
+                        <div class="text-center hero-text-box w-100 text-success" style="max-width: 700px;">
+                            <h2 class="h3 fw-bold mt-0 text-success">Join Our Volunteer Community</h2>
+                            <p class="mt-1 d-none d-sm-block text-success">
+                                Become part of a team that cares for cleaner, safer, and greener parks. Anyone can join
+                                all
+                                you need is the will to help your community and protect nature.
+                            </p>
+                            <button class="btn btn-ls text-white fw-semibold shadow-xl btn-success"
+                                data-bs-toggle="modal" data-bs-target="#registerAsVolunteer">
+                                Register Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Hero Section -->
+
+                <!-- Volunteer Info Boxes -->
+                <div class="row g-4 mb-5 text-success">
+
+                    <div class="col-md-4 text-success">
+                        <div class="info-box p-4 rounded-3 shadow-sm" onclick="selectBox(this)">
+                            <h3 class="h2 fw-bold mb-1 text-dark-accent">What Volunteers Do?</h3>
+                            <p class="text-dark-accent opacity-75 mt-2 small">
+                                Volunteers help with simple but important tasks like picking up litter, watering plants,
+                                and
+                                supporting small clean-up event.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-success">
+                        <div class="info-box p-4 rounded-3 shadow-sm" onclick="selectBox(this)">
+                            <h3 class="h2 fw-bold mb-1 text-dark-accent">Volunteer Impact?</h3>
+                            <p class="text-dark-accent opacity-75 mt-2 small">
+                                By giving a little time, you help protect local wildlife, improve green spaces, and make
+                                the
+                                park safer and more enjoyable for everyone.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-success">
+                        <div class="info-box p-4 rounded-3 shadow-sm" onclick="selectBox(this)">
+                            <h3 class="h2 fw-bold mb-1 text-dark-accent">What Can You Learn?</h3>
+                            <p class="text-dark-accent opacity-75 mt-2 small">
+                                Our website guides you from beginner to advanced skills through courses on park
+                                cleanliness,
+                                habitats, and recycling etc.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Volunteer Info Boxes -->
+            </div>
+        </div>
+
+        <!-- Online Volunteering Section -->
+        <section class="py-5" style="background-color: #f3fdec;">
+            <div class="container py-5 pt-0 text-success">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bolder text-dark-accent">Online Volunteering Opportunities</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                        Join our team from anywhere! Help support park activities and learning by contributing online.
+                        Your
+                        efforts can reach more people and make a real difference.
+                    </p>
+                </div>
+
+                <div class="row g-4 justify-content-center align-items-stretch core-features-row d-flex h-100">
+
+                    <div class="col-md-3 d-flex flex-column justify-content-around h-100">
+
+                        <!-- Feature 1: Create Educational Courses (Icon: Book) -->
+                        <div class="feature-box p-4 rounded-3 shadow-sm">
+                            <i class="bi bi-book-fill text-primary-green display-6 mb-2"></i>
+                            <p class="mb-1 small">
+                                <span class="fw-bold text-dark-accent">Create Educational Courses</span> Develop
+                                learning
+                                courses about parks knowledge, skills for users.
+                            </p>
+                        </div>
+
+                        <!-- Feature 2: Manage Announcements (Icon: Megaphone) -->
+                        <div class="feature-box p-4 rounded-3 shadow-sm mt-md-4">
+                            <i class="bi bi-megaphone-fill text-primary-green display-6 mb-2"></i>
+                            <p class="mb-1 small">
+                                <span class="fw-bold text-dark-accent">Manage Announcements</span><br> Keep the
+                                community
+                                updated with events, clean-ups, and news.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Center Image -->
+                    <div class="col-md-5 d-flex align-items-center justify-content-center feature-image-col h-100">
+                        <img src="./assets/images/volunteer-center-img.jpg" alt="Volunteers helping"
+                            class="img-fluid rounded-3 shadow-lg" style="object-fit: cover; max-height: 550px;">
+                    </div>
+
+                    <div class="col-md-3 d-flex flex-column justify-content-around h-100">
+
+                        <!-- Feature 3: Share Awareness (Icon: Share) -->
+                        <div class="feature-box p-4 rounded-3 shadow-sm">
+                            <i class="bi bi-share-fill text-primary-green display-6 mb-2"></i>
+                            <p class="mb-1 small">
+                                <span class="fw-bold text-dark-accent">Share Awareness</span> <br>Post tips, guides, and
+                                content to teach others about nature.
+                            </p>
+                        </div>
+
+                        <!-- Feature 4: Moderate Online Discussions (Icon: Chat Dots) -->
+                        <div class="feature-box p-4 rounded-3 shadow-sm mt-md-4">
+                            <i class="bi bi-chat-left-dots-fill text-primary-green display-6 mb-2"></i>
+                            <p class="mb-1 small">
+                                <span class="fw-bold text-dark-accent">Moderate Online Discussions</span> <br> Help the
+                                community by managing forms, and answering questions etc.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="donation-section text-success">
+            <h2 class="display-6 fw-bolder text-dark-accent text-center mt-3">Can't volunteer?</h2>
+            <div class="container mt-5 mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <img src="./assets/images/cow-donate.png" alt="Cow donate money" class="my-2 d-block m-auto"
+                            width="120px">
+                        <p><b>Don't worry</b> Even if you can't volunteer yourself, you can still support the volunteers
+                            by funding our efforts. Your funding directly goes to our volunteering efforts so, no money
+                            wasted!
+                            <br><br>
+                            Your funding helps us:
+                        <ol>
+                            <li>Host volunteering sessions</li>
+                            <li>Share awareness</li>
+                            <li>Buy tools</li>
+                            <li>Organize events</li>
+                        </ol>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h3 class="text-success">Donation Form</h3>
+                        <form id="donationForm" novalidate>
+                            <input type="text" class="form-control text-success mb-2" id="senderName"
+                                placeholder="Sender's name">
+                            <select class="form-select text-success mb-2" id="paymentSelector">
+                                <option value="ayapay">AYApay</option>
+                                <option value="cbpay">CB Pay</option>
+                                <option value="kpay">Kpay</option>
+                                <option value="wavepay">Wave Pay</option>
+                            </select>
+                            <p class="ms-3" id="accountInfo">
+                                <!-- <b>Account Detail:</b> <br>
+    Account Number: 09111222333 <br>
+    Account Name: Mg Mg -->
+                            </p>
+                            <input type="number" class="form-control text-success mb-2" min="1000" placeholder="Amount"
+                                id="amount">
+                            <textarea class="form-control text-success mb-2" placeholder="Enter your notes"
+                                id="notes"></textarea>
+                            <label class="form-label">Payment Receipt:</label>
+                            <input type="file" class="form-control text-success mb-2" id="paymentReceipt">
+                            <button class="btn btn-success d-block m-auto" id="submitBtn" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="custom-shape-divider-top-1764521610" style="position: relative;">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+            <!-- TOP: Newsletter -->
+            <div class="py-4 border-bottom border-secondary-subtle d-none">
+                <div class="container footer-container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-6 col-12 mb-3 mb-lg-0">
+                            <p class="newsletter-text mb-0">Join our newsletter to<br>keep up to date with us!</p>
+                        </div>
+
+                        <div class="col-lg-6 col-12 d-flex justify-content-lg-end">
+                            <div class="input-group">
+                                <input type="text" class="form-control text-success footer-email-input"
+                                    placeholder="Email"
+                                    style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; background-color: white !important;">
+                                <button class="btn btn-success"
+                                    style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIDDLE: Brand + Nav -->
+            <div class="row g-0 footer-middle-row">
+
+                <div class="col-md-6 py-5 col-content-left">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="assets/images/SpiritBound.png"
+                            style="width:60px;height:60px;background:white;border-radius:50%;">
+                        <h1 class="ms-2">SpiritBound</h1>
+                    </div>
+                    <p class="tagline mb-0 text-white">Build a Greener Future with<br>SpiritBound</p>
+                </div>
+
+                <div class="col-md-6 bg-light-gray py-5 col-content-right">
+                    <div class="row">
+
+                        <div class="col-c-4 col-4 nav-column">
+                            <h4 class="nav-link-heading">Platform</h4>
+                            <ul class="list-unstyled nav-list">
+                                <li><a href="./parks.html" class="link-light text-decoration-none">Parks</a>
+                                </li>
+                                <li><a href="./courses.html" class="link-light text-decoration-none">Courses</a></li>
+                                <li><a href="./announcements.html"
+                                        class="link-light text-decoration-none">Announcements</a></li>
+                                <!-- <li><a href="#" class="link-light text-decoration-none">SocialBound</a></li> -->
+                            </ul>
+                        </div>
+
+                        <div class="col-c-4 col-4 nav-column">
+                            <h4 class="nav-link-heading">Pages</h4>
+                            <ul class="list-unstyled nav-list">
+                                <li><a href="./home.html" class="link-light text-decoration-none">Home</a>
+                                </li>
+                                <li><a href="./about-us.html" class="link-light text-decoration-none">About us</a>
+                                </li>
+                                <li><a href="#contactUsModal" role="button" data-bs-toggle="modal"
+                                        class="link-light text-decoration-none">Contact us</a></li>
+                                <!-- <li><a href="#" class="link-light text-decoration-none">Donate us</a></li> -->
+                                <!-- <li><a href="#registration" type="button" data-bs-toggle="modal"
+                                        class="link-light text-decoration-none">Join us</a></li> -->
+                                <!-- <li><a href="#" class="link-light text-decoration-none">Blog</a></li> -->
+                            </ul>
+                        </div>
+
+                        <div class="col-c-4 col-4 nav-column">
+                            <h4 class="nav-link-heading">Resources</h4>
+                            <ul class="list-unstyled nav-list">
+                                <!-- <li><a href="#" class="link-light text-decoration-none">Reference</a></li> -->
+                                <!-- <li><a href="#" class="link-light text-decoration-none">FAQ</a></li> -->
+                                <!-- <li><a href="#" class="link-light text-decoration-none">Help</a></li> -->
+                                <li><a href="#aiBotOffcanvas" type="button" data-bs-toggle="offcanvas"
+                                        class="link-light text-decoration-none">AI assistant</a></li>
+                                <li><a href="./faq.html" class="link-light text-decoration-none">FAQ</a>
+                                <li><a href="./references.html" class="link-light text-decoration-none">References</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM -->
+            <div class="row g-0 border-top border-secondary-subtle">
+                <div class="col-md-6 py-3 col-content-left d-flex align-items-center">
+                    <p class="text-light-green mb-0">© 2025 SpiritBound Org. All rights reserved.</p>
+                </div>
+
+                <div
+                    class="col-md-6 bg-light-gray py-3 d-flex justify-content-md-end align-items-center col-content-right">
+                    <div class="legal-links text-nowrap">
+                        <a href="#" class="link-light text-decoration-none d-none">Terms of Service</a>
+                        <a href="#" class="link-light text-decoration-none d-none">Privacy Policy</a>
+                        <a href="#cookiesOffcanvas" role="button" data-bs-toggle="offcanvas"
+                            class="link-light text-decoration-none d-none">Cookies</a>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+
+</body>
+
+<script>
+    function selectBox(element) {
+        const boxes = document.querySelectorAll('.info-box');
+
+        boxes.forEach(box => {
+            if (box !== element && box.classList.contains('selected')) {
+                box.classList.remove('selected');
+            }
+        });
+
+        element.classList.toggle('selected');
+    }
+</script>
+
+
+<!-- Bootstrap JS Link -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+<!-- Puter JS for AI -->
+<script src="https://js.puter.com/v2/"></script>
+
+<!-- Volunteer JS -->
+<script type="module" src="./scripts/volunteer.js"></script>
+
+<!-- Essentials -->
+<script type="module" src="./scripts/auth.js"></script>
+<script src="./navbar/navbar.js"></script>
+<script type="module" src="./scripts/toast.js"></script>
+<script src="./scripts/vanilla-tilt.js"></script>
+<script src="./scripts/contact.js" type="module"></script>
+<script src="./scripts/multi-step-form.js" type="module"></script>
+<script src="./scripts/sticky-btn.js"></script>
+<script src="./scripts/ai-chatbot.js" type="module"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<!-- <script src="./scripts/language.js"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
+
+</html>

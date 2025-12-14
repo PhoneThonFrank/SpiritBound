@@ -1,0 +1,106 @@
+body {
+    background-color: #ffffff;
+}
+
+#hero-section {
+    width: 100%;
+    height: 40vh;
+    min-height: 250px;
+    max-height: 500px;
+    position: relative;
+    border-radius: 1.5rem !important;
+}
+
+#hero-carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item img {
+    object-fit: cover;
+}
+
+.hero-text-box {
+    background-color: rgb(255, 255, 255);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* .hero-text-box h2, .hero-text-box p {
+            color: white !important; 
+        } */
+
+.info-box {
+    background-color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid #dee2e6;
+    height: 100%;
+    border-radius: 0.75rem;
+}
+
+.info-box:hover {
+    background-color: rgba(136, 198, 89, 0.2);
+}
+
+.info-box.selected {
+    background-color: #88c659 !important;
+    box-shadow: 0 0.5rem 1.5rem rgba(136, 198, 89, 0.5) !important;
+    transform: scale(1.03);
+    border-color: #88c659;
+}
+
+.info-box.selected h3,
+.info-box.selected p {
+    color: white !important;
+}
+
+.feature-box {
+    background-color: white;
+    border: 1px solid #e5e7ebf6;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: auto;
+    min-height: 150px;
+    border-radius: 0.75rem;
+}
+
+.feature-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(194, 190, 190, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 991.98px) {
+    .feature-image-col {
+        order: -1;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-box {
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .core-features-row .col-md-3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.donation-section {
+    background-color: white;
+    height: fit-content;
+}
+
+.custom-shape-divider-top-1764521610 .shape-fill {
+    fill: white !important;
+}
+
+#senderName::placeholder, #amount::placeholder, #notes::placeholder {
+    color: #76ab4d !important;
+}

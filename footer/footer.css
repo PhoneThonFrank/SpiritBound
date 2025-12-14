@@ -1,0 +1,137 @@
+:root {
+    --primary-green: white;
+    --dark-green: white;  
+    --light-gray-bg: #f8f8f8;
+    --light-text-color: #739965;
+    --border-color: #ccc;
+    --font-family-sans: 'Poppins', sans-serif;
+}
+body {
+    font-family: var(--font-family-sans);
+    color: var(--dark-green);
+    /* background-color: #EDF6E8; */
+}
+ 
+/* General footer layout */
+.site-footer {
+    margin-top: auto;
+    width: 100%;
+    background: #76ab4d;
+}
+ 
+/* Container width fix */
+.footer-container {
+    max-width: 1200px;
+    padding-inline: 5%;
+}
+ 
+/* Newsletter */
+.newsletter-text {
+    font-size: clamp(1.2rem, 1vw + 1rem, 1.5rem);
+    font-weight: 600;
+}
+ 
+.newsletter-form-group {
+    max-width: 400px;
+}
+ 
+/* .newsletter-form-group input {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+} */
+ 
+/* .newsletter-form-group button {
+    background: var(--primary-green);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+} */
+/* .newsletter-form-group button:hover {
+    background: #55993C;
+} */
+ 
+/* Brand zone */
+.tagline {
+    color: var(--light-text-color);
+}
+ 
+/* Navigation */
+.nav-link-heading {
+    font-weight: 700;
+    margin-bottom: .8rem;
+}
+/* .nav-list a {
+    text-decoration: none;
+    color: var(--light-text-color);
+    display: block;
+    margin-bottom: .5rem;
+}
+.nav-list a:hover {
+    color: var(--dark-green);
+} */
+ 
+/* Legal */
+.legal-links a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: var(--light-text-color);
+}
+.legal-links a:hover {
+    text-decoration: underline;
+}
+ 
+/* Remove “force-left/force-right” on large screens */
+.col-content-left,
+.col-content-right {
+    padding-inline: 5%;
+}
+ 
+/* FIX FOR MOBILE (important): stack columns properly */
+@media (max-width: 992px) {
+    .footer-middle-row > div {
+        padding-inline: 5% !important;
+    }
+ 
+    .nav-column {
+        margin-top: 2rem;
+    }
+ 
+    .col-c-4 {
+        width: 50%;
+    }
+}
+@media (max-width: 576px) {
+    .col-c-4 {
+        width: 100%;
+    }
+    .legal-links {
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        text-align: left;
+        margin-left: 0 !important;
+    }
+}
+.custom-shape-divider-top-1764521610 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+ 
+.custom-shape-divider-top-1764521610 svg {
+    position: relative;
+    display: block;
+    width: calc(103% + 1.3px);
+    height: 98px;
+}
+ 
+.custom-shape-divider-top-1764521610 .shape-fill {
+    fill: #f3fdec;
+}
+
+.footer-email-input::placeholder{
+    color: white !important;
+}

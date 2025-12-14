@@ -1,0 +1,32 @@
+#myanmar-map path {
+    stroke: #88c659;
+
+    stroke-width: 1.5;
+
+    fill: #f8fff2;
+
+    transition: fill 120ms ease, transform 120ms ease;
+    cursor: pointer;
+}
+
+.yangon-path {
+    fill: #76ab4d !important;
+}
+
+
+#myanmar-map path:hover,
+#myanmar-map path:focus {
+    fill: #c9ec9b;
+
+}
+
+
+#myanmar-map path:active {
+    transform: scale(0.995);
+}
+
+.state-section {
+    min-height: 100vh;
+    height: fit-content;
+    background-color: #f3fdec;
+}

@@ -1,0 +1,75 @@
+:root {
+    --bottom-base: 2rem;
+    --stack-offset: 4rem;
+}
+
+.fixed-btn {
+    position: fixed;
+    right: 1.5rem;
+    bottom: var(--bottom-base);
+    z-index: 1001;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px !important;
+    height: 50px !important; 
+    border-radius: 50% !important; 
+    border: none;
+    color: white;
+}
+
+.fab-item {
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+.fab-item.open {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+#rulesBtn.open {
+    bottom: calc(var(--bottom-base) + (3 * var(--stack-offset)));
+}
+
+#chatToggleBtn.open {
+    bottom: calc(var(--bottom-base) + (2 * var(--stack-offset)));
+}
+
+#scrollToTopBtn.open {
+    bottom: calc(var(--bottom-base) + (1 * var(--stack-offset)));
+}
+
+#scrollToTopBtn.scrolled-only {
+    display: none;
+}
+
+#scrollToTopBtn.open.scrolled-only {
+    display: flex;
+}
+
+#messageBox {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -50px);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    z-index: 5000;
+}
+
+#messageBox.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+.list-item-icon {
+    color: var(--main-green);
+    margin-right: 0.5rem;
+}

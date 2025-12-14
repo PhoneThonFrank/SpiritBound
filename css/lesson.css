@@ -1,0 +1,44 @@
+.custom-lesson-navbar{
+    height: 70px;
+    background-color: #88c659;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container{
+    min-height: 100vh;
+    background-color: white;
+}
+
+.custom-loading-screen{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: rgb(241, 249, 235);
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-switch-nav{
+    height: fit-content;
+    width: 100%;
+    /* background-color: #88c659; */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1.5rem;
+    /* backdrop-filter: blur(20px); */
+    text-align: center;
+    z-index: 900;
+}

@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiritBound</title>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/images/SpiritBound.png" type="image/x-icon">
+
+    <!-- Bootstrap CDN CSS Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="./navbar/navbar.css">
+    <link rel="stylesheet" href="./css/multi-step-form.css">
+    <link rel="stylesheet" href="./css/sticky-btn.css">
+    <link rel="stylesheet" href="./css/ai-chatbot.css">
+
+    <!-- Bootstrap Icon CDN Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Designs -->
+    <link rel="stylesheet" href="./css/designs.css">
+    <!-- Home CSS -->
+    <link rel="stylesheet" href="./css/home.css">
+
+
+    <!-- Essentials -->
+    <!-- Navbar -->
+    <link rel="stylesheet" href="./navbar/navbar.css">
+    <!-- Footer -->
+    <link rel="stylesheet" href="footer/footer.css">
+
+</head>
+
+<body>
+
+
+
+    <!-- Cookies Offcanvas -->
+    <div class="offcanvas offcanvas-bottom" style="background-color: white !important;" tabindex="-1"
+        id="cookiesOffcanvas" aria-labelledby="cookiesOffcanvasLabel">
+        <div class="offcanvas-header text-success">
+            <h5 class="offcanvas-title" id="cookiesOffcanvasLabel">Cookies 🍪</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+        </div>
+        <div class="offcanvas-body text-success">
+            <div>
+                We use cookies 🍪 for better experience.
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-success" data-bs-dismiss="offcanvas">Okay!</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Alert Toast -->
+    <div class="toast-container position-static position-fixed top-0 end-0" id="toastContainer">
+    </div>
+
+    <!-- Intro Multi-step Modal -->
+    <div class="modal modal-lg fade " data-bs-backdrop="static" data-bs-keyboard="false" id="introMultiStepModal"
+        tabindex="-1" aria-labelledby="introMultiStepModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered m-auto modal-fullscreen-sm-down">
+            <div class="modal-content position-relative multi-step-form-modal"
+                style="background-color: white !important; color: #88c659 !important;">
+                <div class="modal-header">
+                    <h3 id="multi-step-title" class="d-none"></h3>
+                    <div class="progress w-100" style="border-radius: 1.5rem;" role="progressbar"
+                        aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" id="multi-step-progress"
+                            style="background-color: #88c659; border-radius: 1.5rem;"></div>
+                    </div>
+                </div>
+                <div class="modal-body px-2 text-center py-5">
+
+                    <div class="multi-step-container multi-step-con-whole"></div>
+
+                    <div id="multi-step-1">
+                        <h1>Welcome to SpiritBound</h1>
+                        <p class="mt-4">Before you start your journey with us, allow us to ask you a few more questions
+                            to provide
+                            you a personalized learning experience.</p>
+                        <!-- <button class="btn btn-success btn-lg">Start</button> -->
+                    </div>
+
+                    <div id="multi-step-2">
+                        <label for="location">Which region do you live in?</label>
+                        <div class="d-flex w-75 m-auto">
+                            <select id="location" class="form-select text-success mt-4 w-50">
+                                <option value="">--State/Division--</option>
+                                <option value="Ayeyarwady Region">Ayeyarwady Region</option>
+                                <option value="Bago Region">Bago Region</option>
+                                <option value="Chin State">Chin State</option>
+                                <option value="Kachin State">Kachin State</option>
+                                <option value="Kayah State">Kayah State</option>
+                                <option value="Kayin State">Kayin State</option>
+                                <option value="Magway Region">Magway Region</option>
+                                <option value="Mandalay Region">Mandalay Region</option>
+                                <option value="Mon State">Mon State</option>
+                                <option value="Naypyidaw Union Territory">Naypyidaw Union Territory</option>
+                                <option value="Rakhine State">Rakhine State</option>
+                                <option value="Sagaing Region">Sagaing Region</option>
+                                <option value="Shan State">Shan State</option>
+                                <option value="Taninthayi Region">Taninthayi Region</option>
+                                <option value="Yangon Region">Yangon Region</option>
+                            </select>
+                            <input type="text" class="form-control mt-4 ms-2 text-success"
+                                placeholder="Township (Optional)" id="township-input">
+                        </div>
+
+                    </div>
+
+                    <div id="multi-step-3">
+                        <label for="how-find">How did you find us?</label>
+                        <select class="form-select text-success mt-4 w-75 m-auto" id="how-find">
+                            <option value="">--Select--</option>
+                            <option value="social-media">Social Media (Facebook, X)</option>
+                            <option value="search-engine">Search Engine (Google, Bing)</option>
+                            <option value="friends">Friends</option>
+                            <option value="others">Other</option>
+                        </select>
+                    </div>
+
+                    <div id="multi-step-4">
+                        <label for="experience-level">Please describe your skill (For park related activities)</label>
+                        <select class="form-select text-success mt-4 w-75 m-auto" id="experience-level">
+                            <option value="">--Select--</option>
+                            <option value="beginner">Beginner (Know basic skills)</option>
+                            <option value="intermediate">Intermediate (Comfortable)</option>
+                            <option value="advanced">Advanced (Can use complex concepts)</option>
+                        </select>
+                    </div>
+
+                    <div id="multi-step-5">
+                        <h1>Thank You!</h1>
+                        <p class="mt-4">Thank you for answering. Please make sure that all the information you entered
+                            are correct. This helps us ensure that you get the best experience.</p>
+                        <!-- <button class="btn btn-success btn-lg">Finish</button> -->
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button class="btn btn-secondary" disabled id="multi-step-back-btn">Previous Question</button>
+                    <button class="btn btn-success" id="multi-step-start-btn">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Loading Modal -->
+    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="loadingModal" tabindex="-1"
+        aria-labelledby="loadingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered m-auto" style="height: 400px; width: 250px;">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+
+                    <!-- <div class="spinner-border mx-auto my-3" style="width: 80px; height: 80px;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div> -->
+
+                    <div class="loader m-auto mt-3">
+                        <div class="bar bar1"></div>
+                        <div class="bar bar2"></div>
+                        <div class="bar bar3"></div>
+                        <div class="bar bar4"></div>
+                        <div class="bar bar5"></div>
+                        <div class="bar bar6"></div>
+                        <div class="bar bar7"></div>
+                        <div class="bar bar8"></div>
+                        <div class="bar bar9"></div>
+                        <div class="bar bar10"></div>
+                        <div class="bar bar11"></div>
+                        <div class="bar bar12"></div>
+                    </div>
+
+                    <!-- <h2>Loading</h2> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Navbar Essentials -->
+    <!-- My lovely navbar -->
+    <nav class="main-navbar container-fluid">
+
+        <div class="row justify-content-center  px-2 nav-over-container-main "
+            style="height: 100%; z-index: 1000 !important; width: 100vw; height: 50px;">
+            <div class="col-4 col-md-2 p-0 me-2" style="height: 100%;">
+                <div class=" d-flex justify-content-center align-items-center brand-bg ps-5 ps-sm-2">
+                    <a href="./home.html" class="text-decoration-none">
+                        <h3 class="text-success mt-2 rounded px-1">SpiritBound</h3>
+                    </a>
+                    <!-- <img src="./assets/images/logo.png" alt="SpiritBound" class="img-fluid"
+                        style="max-height: 70px;"> -->
+                    <!-- <div class="ms-1 fs-5">SpiritBound</div> -->
+                </div>
+            </div>
+            <div class="col-7 center-stage-navbar p-0 px-1" style="height: 100%;">
+                <div class="nav-over-container bg-white">
+                    <div class="d-flex justify-content-center align-items-center nav-padding-con h-100">
+                        <ul class="nav justify-content-center align-items-center h-100">
+                            <li class="nav-item">
+                                <a class="nav-link link-success active" aria-current="page"
+                                    href="./parks.html">Parks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-success" href="./courses.html">Courses</a>
+                            </li>
+
+                            <li class="nav-item d-none">
+                                <a class="nav-link link-success" href="./announcements.html">Events
+                                </a>
+                            </li>
+
+                            <!-- <li class="nav-item">
+                                <a class="nav-link link-success" href="./about-us.html">About</a>
+                            </li> -->
+
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link link-success dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Events
+                                </a>
+
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./announcements.html">Announcements</a></li>
+                                    <li><a class="dropdown-item" href="./volunteer.html">Volunteer</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown d-none">
+                                <a class="nav-link link-success dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Learn
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./mycourses.html">My Courses</a></li>
+                                    <li><a class="dropdown-item" href="./courses.html">New Courses</a></li>
+                                    <!-- <li>
+                                        <hr class="dropdown-divider d-none">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">New Courses</a></li> -->
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link link-success dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    About
+                                </a>
+
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./about-us.html">Our Team</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider d-none">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#contactUsModal" type="button"
+                                            data-bs-toggle="modal">Contact</a></li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                        <button class="btn btn-success" id="nav-search-btn" style="display: none !important;"><i
+                                class="bi bi-search"></i></button>
+                        <div class="input-group align-items-center" id="nav-search-group"
+                            style="width: 250px; display: none !important;">
+                            <input type="text" class="form-control desktop-form-search" placeholder="Search..."
+                                style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; color: #88c659 !important; background-color: white !important;">
+                            <button class="btn btn-success"
+                                style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"><i
+                                    class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-6 col-sm-5 col-md-2 p-0" style="height: 100%;">
+                <div class="nav-over-container right-nav-bg d-flex justify-content-center align-items-center h-100 p-0">
+                    <ul class="nav justify-content-center align-items-center h-100 p-0">
+                        <li class="nav-item dropdown">
+                            <!-- <a class="nav-link dropdown-toggle d-none d-sm-inline" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Account
+                            </a> -->
+                            <a class="btn btn-lg btn-success mx-1 dropdown-toggle h-100" id="navPfp" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person"></i>
+                                <img src="./assets/images/profile/cow.png" alt="profile" width="40px"
+                                    style="border-radius: 1.5rem; display: none;">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#registration" role="button" data-bs-toggle="modal"
+                                        id="signInText">Login</a></li>
+                                <li><a class="dropdown-item" href="#registration" role="button" data-bs-toggle="modal"
+                                        id="registerText">Register</a></li>
+                                <li><button disabled class="dropdown-item fw-bold" id="usernameText"></button></li>
+                                <li><a class="dropdown-item" href="#" id="signOutText">Sign Out</a></li>
+                                <li id="authDropDownDivider">
+                                    <hr class="dropdown-divider d-none">
+                                </li>
+                                <li><a class="dropdown-item" href="./mycourses.html" id="myProgressText">My Progress</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./profile.html" id="profileText">Profile</a></li>
+                                <!-- <li id="authDropDownDivider">
+                                    <hr class="dropdown-divider d-none">
+                                </li> -->
+                                <!-- <div id="google_translate_element"></div>
+                                <li>
+                                    <select id="custom-language-selector" class="form-select w-75 m-auto">
+                                        <option value="en">English 🇬🇧</option>
+                                        <option value="my">Burmese 🇲🇲</option>
+                                    </select>
+                                </li> -->
+                            </ul>
+                        </li>
+                        <button class="mx-1 d-inline d-md-none btn btn-lg btn-success" type="button"
+                            data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
+                            aria-controls="navbarOffcanvas">
+                            <small class="bi bi-layout-text-sidebar"></small>
+                        </button>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- For blurring navbar background -->
+        <div class="row justify-content-center nav-blur-main-container px-2 d-none" style="height: 100%;">
+            <div class="col-4 col-md-2 p-0" style="height: 100%;">
+                <div
+                    class="nav-over-container nav-over-blur brand-bg d-none d-flex justify-content-center align-items-center">
+                </div>
+            </div>
+            <div class="col-7 center-stage-navbar p-0 px-1" style="height: 100%;">
+                <div class="nav-over-container nav-over-blur">
+                </div>
+            </div>
+            <div class="col-6 d-none col-sm-5 col-md-2 p-0" style="height: 100%;">
+                <div
+                    class="nav-over-container right-nav-bg nav-over-blur d-flex justify-content-center align-items-center">
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Navbar Offcanvas -->
+    <div class="offcanvas offcanvas-end" style="width: 100vw; border-radius: 0 !important;" tabindex="-1"
+        id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+        <div class="offcanvas-header d-flex justify-content-between">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+            <button type="button" class="btn btn-danger close-btn" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                    class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="input-group mb-3 align-items-center d-none">
+                <input id="mobileNavSearch" type="text" class="form-control" placeholder="Search..."
+                    style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
+                <button class="btn btn-success"
+                    style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"><i
+                        class="bi bi-search"></i></button>
+            </div>
+
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link link-light active" aria-current="page" href="./home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-light active" aria-current="page" href="./parks.html">Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-light" href="./courses.html">Courses</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link link-light" href="./announcements.html">Announcements</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link link-light" href="./volunteer.html">Volunteer</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                                <a class="nav-link link-light" href="./about-us.html">About</a>
+                            </li> -->
+
+
+                <li class="nav-item dropdown d-none">
+                    <a class="nav-link link-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Learn
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./mycourses.html">My Courses</a></li>
+                        <li><a class="dropdown-item" href="./courses.html">New Courses</a></li>
+                        <!-- <li>
+                                        <hr class="dropdown-divider d-none">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">New Courses</a></li> -->
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link link-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        About
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./about-us.html">Our Team</a></li>
+                        <li>
+                            <hr class="dropdown-divider d-none">
+                        </li>
+                        <li><a class="dropdown-item" href="#contactUsModal" type="button"
+                                data-bs-toggle="modal">Contact</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content" style="background-color: white !important;">
+                <div class="modal-header text-success d-flex justify-content-between">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Search</h1>
+                    <button type="button" class="btn btn-danger close-btn" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body text-success">
+                    <form id="searchFormSubmit">
+                        <div class="input-group mb-3 align-items-center">
+
+                            <input id="formSearchInput" type="text" class="form-control text-success"
+                                placeholder="Search..."
+                                style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
+                            <button class="btn btn-success" type="submit"
+                                style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"><i
+                                    class="bi bi-search"></i></button>
+
+                        </div>
+                    </form>
+                    <div class="input-group d-none" style="overflow: hidden; border-radius: 1.5rem;">
+                        <div class="input-group-text">Search Through:</div>
+                        <select class="form-select"
+                            style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"
+                            id="">
+                            <option value="">Courses</option>
+                            <option value="">Parks</option>
+                            <option value="">Posts</option>
+                            <option value="">Events</option>
+                        </select>
+                    </div>
+
+                    <div class="result-card my-3">
+                        <p class="fw-bold">Courses:</p>
+                        <div id="coursesSearchResult">
+
+                        </div>
+                        <br>
+                        <p class="fw-bold">Announcements:</p>
+                        <div id="announcementsSearchResult"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal registration-modal fade" id="registration" tabindex="-1" aria-labelledby="registrationLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px;">
+            <div class="modal-content position-relative">
+                <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                    style="z-index: 100;" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                <div class="modal-body p-0">
+
+
+                    <div class="glass-container w-100" id="glassContainer">
+                        <div class="image-panel">
+                            <video class="video-background" autoplay muted loop playsinline id="backgroundVideo"
+                                poster="./assets/images/registration-vid-fallback.png">
+                                <source src="./assets/videos/registration-bg.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <img class="image-fallback" src="./assets/images/registration-vid-fallback.png"
+                                alt="Background fallback">
+
+                            <div class="login-image-content text-center">
+                                <h2>Hello, Friend!</h2>
+                                <p>Enter your personal details and start your journey with us</p>
+                                <button class="btn btn-outline" id="showRegisterBtn">Register</button>
+                            </div>
+                            <div class="register-image-content text-center">
+                                <h2>Welcome Back!</h2>
+                                <p>To keep connected with us please login with your personal info</p>
+                                <button class="btn btn-outline" id="showLoginBtn">Login</button>
+                            </div>
+                        </div>
+
+                        <div class="form-panel">
+                            <div class="form-content">
+                                <div class="login-form">
+                                    <h2 class="form-title">Login Here</h2>
+                                    <form id="loginForm" novalidate>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" id="loginEmail"
+                                                placeholder="Email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" id="loginPassword"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="remember-forgot">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                                <label class="form-check-label" for="rememberMe">
+                                                    Remember me
+                                                </label>
+                                            </div>
+                                            <a href="#passwordResetModal" role="button" data-bs-toggle="modal">Forgot
+                                                password?</a>
+                                        </div>
+                                        <button type="submit" class="btn btn-lg w-100 btn-success">Login</button>
+                                    </form>
+
+                                    <div class="social-icons social-sign">
+                                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-google"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="register-form">
+                                    <h2 class="form-title">Register Here</h2>
+                                    <form id="registerForm" novalidate>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" id="registerName"
+                                                placeholder="Full Name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" id="registerEmail"
+                                                placeholder="Email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" id="registerPassword"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control" id="registerConfirmPassword"
+                                                placeholder="Confirm Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-lg w-100 btn-success">Register </button>
+                                    </form>
+
+                                    <div class="social-icons social-sign">
+                                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-google"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                                        <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar Essentials End -->
+
+
+    <!-- Password Reset Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="passwordResetModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="passwordResetModalLabel">Reset Password</h1>
+                    <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                        style="z-index: 100;" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center d-block w-100 mt-2">We will send you a password reset link</p>
+                    <input type="email" class="form-control" id="passwordResetEmail" placeholder="Enter email">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="passwordResetLinkSendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Contact Us Modal -->
+    <!-- Modal -->
+    <div class="modal contact-modal fade" id="contactUsModal" tabindex="-1" aria-labelledby="contactUsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px;">
+            <div class="modal-content position-relative">
+                <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                    style="z-index: 100;" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                <div class="modal-body p-0">
+
+                    <div class="glass-container w-100" id="glassContainer">
+
+                        <div class="image-panel">
+                            <video class="video-background" autoplay muted loop playsinline id="backgroundVideo"
+                                poster="./assets/images/registration-vid-fallback.png">
+                                <source src="./assets/videos/registration-bg.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <img class="image-fallback" src="./assets/images/registration-vid-fallback.png"
+                                alt="Background fallback">
+
+                            <div class="login-image-content text-center">
+                                <h2>Contact Us</h2>
+                                <p>We’d love to hear from you. Send us a message and we’ll get back to you soon.</p>
+                            </div>
+
+                            <div class="social-icons social-sign mt-3 d-none">
+                                <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="social-icon" aria-label="Google"><i class="bi bi-google"></i></a>
+                                <a href="#" class="social-icon" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" class="social-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            </div>
+                            <small><i class="bi bi-geo-alt-fill me-1"></i> No. 635/J, Yoe Ma Yeik Thar (Pyae Road), 2nd
+                                Ward, Kamayut Township, Yangon</small>
+
+                        </div>
+
+
+                        <div class="form-panel">
+                            <div class="form-content">
+                                <div class="contact-form">
+                                    <h2 class="form-title" id="contactUsLabel">Get In Touch</h2>
+                                    <form id="contactForm" novalidate>
+                                        <div class="mb-3">
+
+                                            <input type="text" class="form-control" id="contactName" name="name"
+                                                placeholder="Name" required minlength="2" />
+
+                                        </div>
+
+                                        <div class="mb-3">
+
+                                            <input type="email" class="form-control" id="contactEmail" name="email"
+                                                placeholder="Email" required />
+
+                                        </div>
+
+                                        <div class="mb-3">
+
+                                            <input type="text" class="form-control" id="contactSubject" name="subject"
+                                                placeholder="Subject" required minlength="3" />
+
+                                        </div>
+
+                                        <div class="mb-3">
+
+                                            <textarea class="form-control" id="contactMessage" name="message" rows="5"
+                                                placeholder="Write your message here..." required
+                                                minlength="10"></textarea>
+
+                                        </div>
+
+                                        <button type="submit" class="btn btn-lg w-100 btn-success"
+                                            id="contactSubmitBtn">Send Message</button>
+                                    </form>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ai Offcanvas -->
+    <div class="offcanvas offcanvas-end"
+        style="background-color: white !important; padding: 0 !important; border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; width: 50vw;"
+        tabindex="-1" id="aiBotOffcanvas" aria-labelledby="aiBotOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-success" id="aiBotOffcanvasLabel">Assistant</h5>
+            <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                style="z-index: 100;" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <div class="card h-100" style="border: none !important;">
+                <div class="card-body aiMessagesCon" id="aiMessagesCon">
+
+                    <!-- <div class="d-flex justify-content-start my-2">
+                        <button class="btn btn-secondary text-start" type="button">
+                            <p class="fw-bold">AI</p>
+                            <p>Hello there, how can I help you today?</p>
+                        </button>
+                    </div>
+
+                    <div class="d-flex justify-content-end my-2">
+                        <button class="btn btn-success text-end" type="button">
+                            <p class="fw-bold">You</p>
+                            <p>What is 1+1?</p>
+                        </button>
+                    </div> -->
+
+                </div>
+                <div class="card-footer">
+                    <form id="aiMessageForm">
+                        <div class="input-group">
+                            <button type="button" class="btn btn-success me-2" id="aiClearChatButton"><i
+                                    class="bi bi-clock"></i></button>
+                            <input type="text" class="form-control text-success" id="aiInput"
+                                style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;"
+                                placeholder="Enter your message..." autocomplete="off">
+                            <button class="btn btn-success"
+                                style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;"
+                                type="submit"><i class="bi bi-send"></i></button>
+                        </div>
+                        <small class="text-center d-block text-success my-2">AI can make mistakes. Please double
+                            check.</small>
+                    </form>
+                    <div class="alert text-success-dark text-center" style="display: none;" id="signInToPuterMsgBox">
+                        Our AI Chatbot API is provided freely by Puter.JS Open Source project. In order to chat with AI,
+                        please sign in to Puter.JS. <br>
+                        <button class="btn btn-success mt-3" id="signInToPuter">Sign in to Puter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <button id="chatToggleBtn" data-bs-toggle="offcanvas" data-bs-target="#aiBotOffcanvas"
+        class="fixed-btn btn btn-success fab-item" title="Open AI Assistant">
+        <i class="bi bi-robot"></i>
+    </button>
+
+    <button id="scrollToTopBtn" class="fixed-btn btn btn-success fab-item scrolled-only" title="Scroll to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <button id="stickyActionButton" class="fixed-btn btn btn-success z-[1002]" title="Toggle Menu Actions">
+        <i id="fabIcon" class="bi bi-list"></i>
+    </button>
+
+
+    <!-- Youtube Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="youtubeModal" tabindex="-1" aria-labelledby="youtubeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="youtubeModalLabel">Our Founders' Voices</h1>
+                    <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                        style="z-index: 100;" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body" id="ytModalCon">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: white !important;">
+                <div class="modal-header text-success">
+                    <h1 class="modal-title fs-5" id="certificateModalLabel">Certificate</h1>
+                    <button type="button" class="btn btn-danger close-btn position-absolute top-0 end-0 m-2"
+                        style="z-index: 100;" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body text-success">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 text-center text-success">
+                                <button class="btn btn-success w-100" onclick="window.location.href = './courses.html'">
+                                    Courses
+                                </button>
+                                <p class="mt-2">Complete all the courses for basic/ intermediate/ expert level and
+                                    submit a
+                                    certificate request.</p>
+                            </div>
+                            <div class="col-6 text-center text-success">
+                                <button class="btn btn-success w-100"
+                                    onclick="window.location.href = './volunteer.html'">
+                                    Volunteer
+                                </button>
+                                <p class="mt-2">Participate in at least 3 volunteering sessions and submit a certificate
+                                    request.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section text-center">
+            <div style="height: 70px;"></div>
+
+            <div class="text-container m-auto px-2 px-md-0" style="max-width: 600px;">
+                <div class="btn m-auto px-0 py-1 mb-3 mt-5 btn-success"
+                    onclick="window.location.href = './announcements.html'"
+                    style="backdrop-filter: blur(10px); max-width: 250px; cursor: pointer;">
+                    <i class="bi bi-calendar-event me-2"></i> Announcements
+                </div>
+                <h1 class="display-4 fw-bold primary-text-color">
+                    Build a Greener Future with SpiritBound
+                </h1>
+                <p style="font-size: 20px;" class="mt-3 mb-5 text-success">
+                    Learn and rebuild
+                </p>
+                <!-- Hidden because they are no longer needed but still kept in code to not conflict css and js codes -->
+                <button class="btn btn-lg btn-success my-2 d-none" id="hero-register-btn">
+                    <i class="bi bi-person-circle me-2 hero-register-btn-person-icon"></i>
+                    <i class="bi bi-arrow-right me-2 hero-register-btn-arrow-icon"></i>
+                    <span>Register now</span>
+                </button>
+                <button class="btn btn-lg btn-success my-2 d-none" id="hero-learn-more-btn">
+                    <i class="bi bi-info-circle me-2 hero-learn-more-btn-info-icon"></i>
+                    <i class="bi bi-arrow-right me-2 hero-learn-more-btn-arrow-icon"></i>
+                    <span>Learn more</span>
+                </button>
+                <!-- This new button is shown -->
+                <a href="#courseSection" class="btn position-relative  d-none"
+                    style="padding: 0 !important; border: none !important; box-shadow: none !important;">
+                    <div class="position-absolute bg-white text-success d-flex justify-content-center align-items-center"
+                        style="width: 60px; height: 60px; z-index: 500; border: 1px solid #88c659 !important; border-radius: 50% !important;">
+                        <h3 class="mt-2"><i class="bi bi-arrow-right"></i></h3>
+                    </div>
+                    <button class="btn btn-lg btn-success my-2" style="padding-left: 70px !important;">
+                        Learn More
+                    </button>
+                </a>
+
+                <a href="#courseSection" class="btn btn-lg btn-success d-none">Learn More</a>
+            </div>
+
+
+
+
+            <div class="custom-shape-divider-bottom-1764392838">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <section class="bg-white py-5">
+            <div class="short-info-con text-center m-auto pb-3">
+                <img src="./assets/images/SpiritBound.png" alt="SpiritBound" width="100px" class="mt-2" data-tilt>
+
+                <div>
+                    <h4 class="text-center text-success mt-2">The issues in Myanmar Local Parks</h4>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div class="alert bg-success py-1 mx-2 text-white">Too much littering</div>
+                        <div class="alert bg-success py-1 mx-2 text-white">Lack of facilities</div>
+                        <div class="alert bg-success py-1 mx-2 text-white">Poor management</div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <q class="my-2 mt-0 d-block text-muted px-2">To solve these, our platform offers you an interactive
+                        way
+                        of
+                        learning about
+                        preserving the parks with many other interesting activities.</q>
+                    <button onclick="window.location.href = './parks.html'"
+                        class="btn btn-success d-block m-auto mt-3">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Video Section -->
+        <section class="review-video-section pt-3 pb-5">
+            <div class="container">
+                <h1 class="display-5 text-center"><span class="primary-text-color fw-bold">Our Voices</span>
+                </h1>
+                <div class="row mt-4">
+                    <div class="col-12 col-md-6 mt-2">
+                        <div class="position-relative d-inline">
+                            <img src="./assets/images/yt.png" alt="yt" style="max-width: 560px; border-radius: 1.5rem;"
+                                width="100%">
+                            <button data-bs-toggle="modal" data-bs-target="#youtubeModal" onclick="showYtVid()"
+                                class="btn btn-success btn-lg position-absolute"
+                                style="border-radius: 50% !important; padding: 5px !important; width: 60px !important; height: 60px !important; font-size: 30px; left: 50%; top: 50%; transform: translate(-50%, -50%);"><i
+                                    class="bi bi-play-fill"></i></button>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-md-6 text-center text-md-start mt-2">
+                        <!-- <h3 class="text-success">Our Founders' Voices</h3> -->
+                        <p class="text-success">Watch our founders express their gratitude for making this platform
+                            accessible to everyone in Myanmar. We hope this platform will make a change in how we
+                            understand local parks, and teach everyone real ways of solving nature problems.</p>
+                        <button onclick="window.location.href = `https://www.youtube.com/@lukhantmin2396`"
+                            class="btn btn-lg btn-success mt-3"><i class="bi bi-youtube me-1"></i> YouTube
+                            Channel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Stats Section -->
+        <section class="profile-stats-section pt-5 pb-5">
+            <h1 class="display-5 text-center"><span class="primary-text-color fw-bold">Our Data</span></h1>
+            <div class="container bg-light p-3 mt-5">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-4">
+
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-7 col-sm-5 col-lg-3 col-md-5 my-2">
+                                <img src="./assets/images/students-icon-home.png" data-tilt alt="Students"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col-12 col-md-6 text-center text-md-start text-success my-2">
+                                <h5 class="fw-bold">1000+</h5>
+                                <p class="text-muted">Students</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-4" style="border: 2px dashed #88c659; border-top: none; border-bottom: none;">
+
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-7 col-sm-5 col-lg-3 col-md-5 my-2">
+                                <img src="./assets/images/course-icon-home.png" data-tilt alt="Students"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col-12 col-md-6 text-center text-md-start text-success my-2">
+                                <h5 class="fw-bold">15+</h5>
+                                <p class="text-muted">Courses</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-7 col-sm-5 col-lg-3 col-md-5 my-2">
+                                <img src="./assets/images/volunteer-icon-home.png" data-tilt alt="Students"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col-12 col-md-6 text-center text-md-start text-success my-2">
+                                <h5 class="fw-bold">400+</h5>
+                                <p class="text-muted">Volunteers</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Courses Section -->
+        <section class="courses-section container-fluid pt-3 pb-5" id="courseSection">
+            <div class="mt-3"></div>
+            <div class="container-fluid px-2 pt-5 text-center" style="border-radius: 1.5rem;">
+                <h1 class="display-5 text-success"><span class="primary-text-color fw-bold">SpiritBound's</span> Top
+                    Free Courses
+                </h1>
+
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-6 col-md-3 px-3 my-3">
+                        <div class="card text-start text-success h-100" style="width: 100%; overflow: hidden;">
+                            <img src="./assets/images/courses/park.cleanliness.basics.jpg" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Park Clealiness Basics</h5>
+                                <small class="text-secondary">5 Chapters</small>
+                                <br>
+                                <small class="text-secondary"><i class="bi bi-patch-check-fill text-success me-1"></i>
+                                    22
+                                    students certified</small>
+                                <br>
+                                <span class="mt-2 badge bg-success">Environmental</span>
+                                <span class="badge bg-success">Community</span>
+                                <!-- <span class="badge bg-success">Gardening</span> -->
+                                <!-- <br> -->
+
+                            </div>
+                            <div class="card-footer bg-white">
+                                <a href="./courses.html" class=" w-100 d-block m-auto btn btn-success btn-lg">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-3 px-3 my-3">
+                        <div class="card text-start text-success h-100" style="width: 100%; overflow: hidden;">
+                            <img src="./assets/images/courses/growth.pattern.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Tree Identification & Growth Patterns</h5>
+                                <small class="text-secondary">5 Chapters</small>
+                                <br>
+                                <small class="text-secondary"><i class="bi bi-patch-check-fill text-success me-1"></i>
+                                    47
+                                    students certified</small>
+                                <br>
+                                <span class="mt-2 badge bg-success">Botany</span>
+                                <span class="badge bg-success">Nature Observation</span>
+                                <!-- <span class="badge bg-success">Gardening</span> -->
+                                <!-- <br> -->
+
+                            </div>
+                            <div class="card-footer bg-white">
+                                <a href="./courses.html" class="w-100 d-block m-auto btn btn-success btn-lg">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-3 px-3 my-3">
+                        <div class="card text-start text-success h-100" style="width: 100%; overflow: hidden;">
+                            <img src="./assets/images/courses/habitats.basics.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Understanding Habitats Basics</h5>
+                                <small class="text-secondary">5 Chapters</small>
+                                <br>
+                                <small class="text-secondary"><i class="bi bi-patch-check-fill text-success me-1"></i>
+                                    40
+                                    students certified</small>
+                                <br>
+                                <span class="mt-2 badge bg-success">Ecology</span>
+                                <span class="badge bg-success">Environmental</span>
+                                <!-- <span class="badge bg-success">Gardening</span> -->
+                                <!-- <br> -->
+
+                            </div>
+                            <div class="card-footer bg-white">
+                                <a href="./courses.html" class="w-100 d-block m-auto btn btn-success btn-lg">Enroll</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="./courses.html" class="link-success text-center text-decoration-none">Do you want to see even
+                    more?</a>
+            </div>
+        </section>
+
+
+        <!-- Volunteer Movement Section -->
+        <section class="volunteer-movement-section text-center p-2 pt-5 pb-4" style="background-color: #f3fdec;">
+            <h1 class="display-5 text-success text-center"><span class="primary-text-color fw-bold">Volunteering</span>
+                Movements
+            </h1>
+            <p class="text-center text-success" style="font-size: 20px;"><span class="fw-bold">Be The Change</span>,
+                Join our volunteering movement today.</p>
+            <button class="btn btn-lg btn-success mt-2" onclick="window.location.href = './volunteer.html'">Become a
+                volunteer</button>
+
+
+
+
+            <div class="container-fluid mt-3" style="border-radius: 1.5rem; overflow: hidden;">
+                <div class="row p-0">
+                    <div class="col-12 col-md-4">
+                        <div class="row p-0">
+                            <div class="col-12 col-md-6 volunteer-img-box v-s-i-1-p p-0"
+                                style="background: url('./assets/images/volunteers/2.jpg');">
+                                <div class="v-s-i-1-i w-100 h-100 text-white justify-content-center align-items-center"
+                                    style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.3);">
+                                    <div>
+                                        <span class="badge bg-success">10/3/2025</span>
+                                        <br>
+                                        <p class="fw-bold mt-3">Planting Trees</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 volunteer-img-box v-s-i-2-p p-0"
+                                style="background: url('./assets/images/volunteers/5.jpg');">
+                                <div class="v-s-i-2-i w-100 h-100 text-white justify-content-center align-items-center"
+                                    style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.3);">
+                                    <div>
+                                        <span class="badge bg-success">12/3/2025</span>
+                                        <br>
+                                        <p class="fw-bold mt-3">Cleaning</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 volunteer-img-box v-s-i-3-p p-0"
+                                style="background: url('./assets/images/volunteers/4.jpg');">
+                                <div class="v-s-i-3-i w-100 h-100 text-white justify-content-center align-items-center"
+                                    style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.3);">
+                                    <div>
+                                        <span class="badge bg-success">2/4/2025</span>
+                                        <br>
+                                        <p class="fw-bold mt-3">Maintaining Tree</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="row p-0">
+                            <div class="col-md-12 col-6 volunteer-img-box v-s-i-4-p p-0"
+                                style="background: url('./assets/images/volunteers/6.jpg');">
+                                <div class="v-s-i-4-i w-100 h-100 text-white justify-content-center align-items-center"
+                                    style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.3);">
+                                    <div>
+                                        <span class="badge bg-success">5/4/2025</span>
+                                        <br>
+                                        <p class="fw-bold mt-3">Collecting Trash</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-6 volunteer-img-box v-s-i-5-p p-0"
+                                style="background: url('./assets/images/volunteers/7.jpg');">
+                                <div class="v-s-i-5-i w-100 h-100 text-white justify-content-center align-items-center"
+                                    style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.3);">
+                                    <div>
+                                        <span class="badge bg-success">7/5/2025</span>
+                                        <br>
+                                        <p class="fw-bold mt-3">Cleaning</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="row p-0">
+                            <div class="col-12 col-md-6 volunteer-img-box v-s-i-6-p p-0"
+                                style="background: url('./assets/images/volunteers/3.jpg');">
+                                <div class="v-s-i-6-i w-100 h-100 text-white justify-content-center align-items-center"
+                                    style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.3);">
+                                    <div>
+                                        <span class="badge bg-success">8/5/2025</span>
+                                        <br>
+                                        <p class="fw-bold mt-3">Collecting Trash</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 volunteer-img-box v-s-i-7-p p-0"
+                                style="background: url('./assets/images/volunteers/1.jpg');">
+                                <div class="v-s-i-7-i w-100 h-100 text-white justify-content-center align-items-center"
+                                    style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.3);">
+                                    <div>
+                                        <span class="badge bg-success">10/5/2025</span>
+                                        <br>
+                                        <p class="fw-bold mt-3">Collecting Trash</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 volunteer-img-box v-s-i-8-p p-0"
+                                style="background: url('./assets/images/volunteers/8.jpg');">
+                                <div class="v-s-i-8-i w-100 h-100 text-white justify-content-center align-items-center"
+                                    style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.3);">
+                                    <div>
+                                        <span class="badge bg-success">7/6/2025</span>
+                                        <br>
+                                        <p class="fw-bold mt-3">Collecting Trash</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Volunteering Movement Section -->
+        <section class="join-volunteering-movement bg-white d-none">
+            <div class="container h-100 text-center py-5">
+                <h1 class="display-5 text-success text-center">Be The <span
+                        class="primary-text-color fw-bold">Change</span>
+                </h1>
+                <p class="text-success">Join our volunteering movement today.</p>
+                <button class="btn btn-lg btn-success" onclick="window.location.href = './volunteer.html'">Become a
+                    volunteer</button>
+            </div>
+        </section>
+
+
+        <!-- Certificate Section -->
+        <section class="certificate-section text-center pt-5">
+            <h1 class="display-5 text-success text-center mb-2">Get Yourself a <span
+                    class="primary-text-color fw-bold">Certificate</span>
+            </h1>
+            <p class="mb-3 text-success"><q>We appreciate your work, and we are always ready to help you achieve your
+                    dream goals.</q><span class="fw-bold">-SpiritBound</span></p>
+
+
+            <div class="certificate-img-con position-relative">
+                <div class="d-flex justify-content-center position-relative align-items-center d-none d-md-flex">
+                    <img src="./assets/images/certificate-sample2.png" alt="Certificate Sample"
+                        class="img-fluid rounded shadow" data-tilt style="max-width: 340px; max-height: 440px;">
+                    <img src="./assets/images/certificate-sample3.png" alt="Certificate Sample"
+                        class="img-fluid rounded shadow position-absolute" data-tilt
+                        style="max-width: 370px; max-height: 479px;">
+                    <img src="./assets/images/certificate-sample1.png" alt="Certificate Sample"
+                        class="img-fluid rounded shadow" data-tilt>
+                </div>
+
+                <img src="./assets/images/certificate-sample1.png" alt="Certificate Sample"
+                    class="img-fluid rounded shadow d-block d-md-none" data-tilt>
+
+                <button class="btn btn-lg btn-success position-absolute w-100" data-bs-toggle="modal"
+                    data-bs-target="#certificateModal" style="transform: translate(-50%, -50%); left: 50%; top: 50%;"><i
+                        class="bi bi-lock me-1"></i>
+                    Unlock Your Certificate</button>
+
+                <!-- <div class="position-absolute w-100 h-100 rounded d-flex justify-content-center align-items-center"
+                    style="transform: translate(-50%, -50%); left: 50%; top: 50%; backdrop-filter: blur(2px);">
+
+                </div> -->
+
+            </div>
+            <div style="height: 70px;"></div>
+        </section>
+
+        <!-- Student Review Section -->
+        <section class="student-review-section pb-5">
+            <div class="container pt-5">
+                <h1 class="display-5 text-success text-center mb-3">Our Happy <span
+                        class="primary-text-color fw-bold">Users</span>
+                </h1>
+
+                <div class="row">
+                    <div class="mt-2 col-12 col-md-6">
+
+                        <div class="card review-card position-relative h-100">
+                            <img src="./assets/images/quote-sign.png" alt="quote" width="50px" class="position-absolute"
+                                style="top: 20px; right: 20px;">
+                            <div class="card-body text-success">
+                                <h4>Aung Aung</h4>
+                                <span class="text-white rounded px-2 bg-success">Student at
+                                    SpiritBound</span>
+                                <p class="mt-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </p>
+
+                                <p>
+                                    <q>The AI is really cool and easy to use. I learned a lot in a short time.</q>
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-2 col-12 col-md-6">
+
+                        <div class="card review-card position-relative h-100">
+                            <img src="./assets/images/quote-sign.png" alt="quote" width="50px" class="position-absolute"
+                                style="top: 20px; right: 20px;">
+                            <div class="card-body text-success">
+                                <h4>Ko Gyi</h4>
+                                <span class="text-white rounded px-2 bg-success">Volunteer at
+                                    SpiritBound</span>
+                                <p class="mt-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </p>
+
+                                <p>
+                                    <q>I like how clear the lessons are. The quizzes feel fun, almost like playing a
+                                        small game. It makes learning fast.</q>
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-2 col-12 col-md-6">
+
+                        <div class="card review-card position-relative h-100">
+                            <img src="./assets/images/quote-sign.png" alt="quote" width="50px" class="position-absolute"
+                                style="top: 20px; right: 20px;">
+                            <div class="card-body text-success">
+                                <h4>Thiri</h4>
+                                <span class="text-white rounded px-2 bg-success">Student & Volunteer at
+                                    SpiritBound</span>
+                                <p class="mt-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </p>
+
+                                <p>
+                                    <q>The volunteer page is great. Signing up is easy, and I like that I can help both
+                                        online and on the ground.</q>
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-2 col-12 col-md-6">
+
+                        <div class="card review-card position-relative h-100">
+                            <img src="./assets/images/quote-sign.png" alt="quote" width="50px" class="position-absolute"
+                                style="top: 20px; right: 20px;">
+                            <div class="card-body text-success">
+                                <h4>Aye Mya</h4>
+                                <span class="text-white rounded px-2 bg-success">Volunteer at
+                                    SpiritBound</span>
+                                <p class="mt-3">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </p>
+
+                                <p>
+                                    <q>The topics are not confusing at all. The AI explains things so simply. The
+                                        beginner courses helped me understand parks better.</q>
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </section>
+
+
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="custom-shape-divider-top-1764521610" style="position: relative;">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+            <!-- TOP: Newsletter -->
+            <div class="py-4 border-bottom border-secondary-subtle d-none">
+                <div class="container footer-container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-6 col-12 mb-3 mb-lg-0">
+                            <p class="newsletter-text mb-0">Join our newsletter to<br>keep up to date with us!</p>
+                        </div>
+
+                        <div class="col-lg-6 col-12 d-flex justify-content-lg-end">
+                            <div class="input-group">
+                                <input type="text" class="form-control text-success footer-email-input"
+                                    placeholder="Email"
+                                    style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; background-color: white !important;">
+                                <button class="btn btn-success"
+                                    style="border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIDDLE: Brand + Nav -->
+            <div class="row g-0 footer-middle-row">
+
+                <div class="col-md-6 py-5 col-content-left">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="assets/images/SpiritBound.png"
+                            style="width:60px;height:60px;background:white;border-radius:50%;">
+                        <h1 class="ms-2">SpiritBound</h1>
+                    </div>
+                    <p class="tagline mb-0 text-white">Build a Greener Future with<br>SpiritBound</p>
+                </div>
+
+                <div class="col-md-6 bg-light-gray py-5 col-content-right">
+                    <div class="row">
+
+                        <div class="col-c-4 col-4 nav-column">
+                            <h4 class="nav-link-heading">Platform</h4>
+                            <ul class="list-unstyled nav-list">
+                                <li><a href="./parks.html" class="link-light text-decoration-none">Parks</a>
+                                </li>
+                                <li><a href="./courses.html" class="link-light text-decoration-none">Courses</a></li>
+                                <li><a href="./announcements.html"
+                                        class="link-light text-decoration-none">Announcements</a></li>
+                                <!-- <li><a href="#" class="link-light text-decoration-none">SocialBound</a></li> -->
+                            </ul>
+                        </div>
+
+                        <div class="col-c-4 col-4 nav-column">
+                            <h4 class="nav-link-heading">Pages</h4>
+                            <ul class="list-unstyled nav-list">
+                                <li><a href="./home.html" class="link-light text-decoration-none">Home</a>
+                                </li>
+                                <li><a href="./about-us.html" class="link-light text-decoration-none">About us</a>
+                                </li>
+                                <li><a href="#contactUsModal" role="button" data-bs-toggle="modal"
+                                        class="link-light text-decoration-none">Contact us</a></li>
+                                <!-- <li><a href="#" class="link-light text-decoration-none">Donate us</a></li> -->
+                                <!-- <li><a href="#registration" type="button" data-bs-toggle="modal"
+                                        class="link-light text-decoration-none">Join us</a></li> -->
+                                <!-- <li><a href="#" class="link-light text-decoration-none">Blog</a></li> -->
+                            </ul>
+                        </div>
+
+                        <div class="col-c-4 col-4 nav-column">
+                            <h4 class="nav-link-heading">Resources</h4>
+                            <ul class="list-unstyled nav-list">
+                                <!-- <li><a href="#" class="link-light text-decoration-none">Reference</a></li> -->
+                                <!-- <li><a href="#" class="link-light text-decoration-none">FAQ</a></li> -->
+                                <!-- <li><a href="#" class="link-light text-decoration-none">Help</a></li> -->
+                                <li><a href="#aiBotOffcanvas" type="button" data-bs-toggle="offcanvas"
+                                        class="link-light text-decoration-none">AI assistant</a></li>
+                                <li><a href="./faq.html" class="link-light text-decoration-none">FAQ</a>
+                                <li><a href="./references.html" class="link-light text-decoration-none">References</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM -->
+            <div class="row g-0 border-top border-secondary-subtle">
+                <div class="col-md-6 py-3 col-content-left d-flex align-items-center">
+                    <p class="text-light-green mb-0">© 2025 SpiritBound Org. All rights reserved.</p>
+                </div>
+
+                <div
+                    class="col-md-6 bg-light-gray py-3 d-flex justify-content-md-end align-items-center col-content-right">
+                    <div class="legal-links text-nowrap">
+                        <a href="#" class="link-light text-decoration-none d-none">Terms of Service</a>
+                        <a href="#" class="link-light text-decoration-none d-none">Privacy Policy</a>
+                        <a href="#cookiesOffcanvas" role="button" data-bs-toggle="offcanvas"
+                            class="link-light text-decoration-none d-none">Cookies</a>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+
+
+    </div>
+</body>
+
+<!-- Bootstrap JS Link -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+<!-- Puter JS for AI -->
+<script src="https://js.puter.com/v2/"></script>
+
+<!-- Home JS -->
+<script src="./scripts/home.js"></script>
+
+<!-- Essentials -->
+<script type="module" src="./scripts/auth.js"></script>
+<script src="./navbar/navbar.js"></script>
+<script type="module" src="./scripts/toast.js"></script>
+<script src="./scripts/vanilla-tilt.js"></script>
+<script src="./scripts/contact.js" type="module"></script>
+<script src="./scripts/multi-step-form.js" type="module"></script>
+<script src="./scripts/sticky-btn.js"></script>
+<script src="./scripts/ai-chatbot.js" type="module"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<!-- <script src="./scripts/language.js"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
+</html>

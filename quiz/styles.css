@@ -1,0 +1,390 @@
+/* --- Custom Styles for a modern, light theme --- */
+:root {
+    --bg-color: #ffffff;
+    /* Light grey background */
+    --card-color: #ffffff;
+    /* White card */
+    --primary-text: #88c659;
+    /* Dark text */
+    --secondary-text: #88c659;
+    /* Muted grey text */
+    --accent-color: #88c659;
+    /* Bootstrap primary blue */
+    --accent-hover: #6e9f48;
+    /* Darker blue for hover */
+    --correct-answer: #88c659;
+    /* Bootstrap success green */
+    --incorrect-answer: #dc3545;
+    /* Bootstrap danger red */
+    --border-color: #dee2e6;
+    /* Light border color */
+}
+
+.bg-success{
+    background-color: #88c659 !important;
+}
+
+.text-success{
+    color: #88c659 !important;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    user-select: none;
+}
+
+.quiz-wrapper {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Replace it with this (adds flex-wrap and gap) */
+.quiz-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    /* Allows items to stack on small screens */
+    gap: 1rem;
+    /* Adds space when items stack */
+}
+
+.timer-points-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows timer/points to stack */
+    justify-content: flex-end;
+    gap: 0.5rem;
+    /* Better spacing than me-2 */
+}
+
+/* --- Power-Up Buttons with Labels (NEW) --- */
+.power-ups {
+    display: flex;
+    gap: 20px;
+    /* Spacing between power-ups */
+}
+
+.power-up-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.power-up-btn {
+    background-color: var(--card-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.power-up-label {
+    font-size: 0.7rem;
+    color: var(--secondary-text);
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+.power-up-btn:hover:not(:disabled) {
+    background-color: var(--accent-color);
+    color: var(--card-color);
+    transform: scale(1.1);
+}
+
+.power-up-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--border-color);
+    color: var(--secondary-text);
+}
+
+.power-up-btn.active {
+    background-color: var(--accent-hover);
+    color: var(--card-color);
+    box-shadow: 0 0 15px rgba(13, 110, 253, 0.5);
+}
+
+/* --- Timer --- */
+#timer {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    background-color: rgba(13, 253, 21, 0.1);
+    padding: 5px 20px;
+    border-radius: 50px;
+}
+
+#points {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    background-color: rgba(13, 253, 21, 0.1);
+    padding: 5px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Question & Results Card --- */
+.card {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--secondary-text);
+    font-weight: 300;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* --- Option Buttons --- */
+
+/* #options-container {
+    display: flex;
+    justify-content: center;
+} */
+
+.option-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--primary-text);
+    text-align: left;
+    padding: 12px;
+    transition: all 0.2s ease;
+    border-radius: 15px;
+    margin: 5px;
+    width: 100%;
+}
+
+.option-btn:hover:not(:disabled) {
+    background-color: var(--accent-color);
+    color: var(--card-color);
+    border-color: var(--accent-color);
+}
+
+.option-btn.correct {
+    background-color: var(--correct-answer);
+    border-color: var(--correct-answer);
+    color: white;
+}
+
+.option-btn.incorrect {
+    background-color: var(--incorrect-answer);
+    border-color: var(--incorrect-answer);
+    color: white;
+    /* animation-name: incorrect; */
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.option-btn:disabled {
+    cursor: not-allowed;
+}
+
+/* --- Next/Submit/Restart Buttons --- */
+#next-btn,
+#restart-btn {
+    background-color: var(--accent-color);
+    color: var(--card-color);
+    font-weight: 600;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: background-color 0.2s ease;
+}
+
+.button {
+    background-color: var(--accent-color);
+    color: var(--card-color);
+    font-weight: 600;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: background-color 0.2s ease;
+}
+
+#next-btn:hover,
+#restart-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* --- Results Display --- */
+#results-container {
+    text-align: center;
+}
+
+#score-text {
+    font-size: 1.25rem;
+    color: var(--secondary-text);
+}
+
+#points-text {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.modal-backdrop {
+    backdrop-filter: blur(20px) !important;
+    opacity: 0.9 !important;
+    background-color: rgba(0, 0, 0, 0.097);
+}
+
+.modal-body {
+    border-radius: 1.5rem !important;
+}
+
+.modal-content {
+    /* background-color: transparent !important; */
+    border: none !important;
+    background-color: white !important;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 576px) {
+    .quiz-header {
+        justify-content: flex-end;
+        /* Center items when they stack */
+    }
+
+    .power-ups {
+        justify-content: center;
+        /* Center power-ups */
+        width: 100%;
+    }
+
+    .timer-points-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #timer,
+    #points {
+        font-size: 1.2rem;
+        /* Smaller font on mobile */
+        padding: 5px 12px;
+        /* Smaller padding on mobile */
+        flex-grow: 1;
+        /* Lets them fill the space */
+        text-align: center;
+    }
+}
+
+/* Incorrect a */
+@keyframes incorrect {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(-8px);
+    }
+
+    20% {
+        transform: translateX(8px);
+    }
+
+    30% {
+        transform: translateX(-6px);
+    }
+
+    40% {
+        transform: translateX(6px);
+    }
+
+    50% {
+        transform: translateX(-4px);
+    }
+
+    60% {
+        transform: translateX(4px);
+    }
+
+    70% {
+        transform: translateX(-2px);
+    }
+
+    80% {
+        transform: translateX(2px);
+    }
+
+    90% {
+        transform: translateX(-1px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* New codes */
+/* --- Countdown Overlay (NEW) --- */
+#countdown-overlay {
+    position: fixed;
+    /* Cover the whole screen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #FFFFFF;
+    /* White background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+    /* Below modals (Bootstrap modals start at 1050) */
+}
+
+#countdown-text {
+    font-size: 200px;
+    font-weight: bold;
+    color: #88c659 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: transform 0.3s;
+}
+
+.zoom {
+    animation: zoom 0.5s ease;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* --- End of Countdown Overlay --- */

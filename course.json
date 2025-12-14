@@ -1,0 +1,28 @@
+[
+    "Title",
+    "Description",
+    "Cover Image",
+    "Number of chapters",
+    [
+        {
+            "Chapter Title": "Chapter Title",
+            "Chapter Description": "Chapter Description",
+            "Lesson": "Put all the lessons you made here *Use HTML text tags",
+            "YouTube Video Link": "Leave this empty but send me your video",
+            "Questions": [
+                {
+                    "Question Id": "Question Id",
+                    "question": "First Question?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                    ],
+                    "correct": "A",
+                    "point": 500
+                }
+            ]
+        }
+    ]
+]

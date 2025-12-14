@@ -1,0 +1,315 @@
+#hero {
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    background-image: url('../assets/images/home-hero-image.png');
+    padding-top: 70px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.profile-statistic {
+    width: 90vw;
+    min-height: 50px;
+    background-color: #ffffff9e;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: 10px;
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    /* overflow-x: scroll; */
+}
+
+.hero-section {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/images/home-hero-image.jpg');
+    padding-top: 70px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.courses-section {
+    width: 100vw;
+    /* min-height: 100vh; */
+    background-color: white;
+    height: fit-content;
+}
+
+.custom-shape-divider-bottom-1764392838 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1764392838 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 77px;
+}
+
+.custom-shape-divider-bottom-1764392838 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.short-info-con {
+    width: 90%;
+    height: fit-content;
+    max-width: 700px;
+    /* min-height: 50px; */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(128, 128, 128, 0.483);
+    /* position: absolute; */
+    /* transform: translate(-50%, -50%); */
+    /* left: 50%; */
+    /* top: -5%; */
+    border-radius: 1.5rem;
+}
+
+.hero-register-btn-arrow-icon,
+.hero-learn-more-btn-arrow-icon {
+    display: none;
+}
+
+#hero-register-btn:hover .hero-register-btn-person-icon {
+    display: none;
+}
+
+#hero-register-btn:hover .hero-register-btn-arrow-icon {
+    display: inline;
+}
+
+#hero-learn-more-btn:hover .hero-learn-more-btn-info-icon {
+    display: none;
+}
+
+#hero-learn-more-btn:hover .hero-learn-more-btn-arrow-icon {
+    display: inline;
+}
+
+.review-video-section {
+    width: 100vw;
+    height: fit-content;
+    background-color: #f3fdec;
+}
+
+.profile-stats-section {
+    background-color: #f3fdec;
+}
+
+.profile-stats-section .container {
+    border-radius: 1.5rem;
+    box-shadow: 0 0 10px rgba(49, 49, 49, 0.263);
+}
+
+.certificate-section {
+    width: 100vw;
+    height: fit-content;
+    /* background-color: #f3fdec; */
+    background-color: white;
+}
+
+.certificate-img-con {
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+}
+
+.volunteer-img-box {
+    /* max-width: 200px; */
+    height: 200px;
+    /* height: 100%; */
+    /* width: 100%; */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    border: 2px solid white;
+    /* border-radius: 1.5rem; */
+    cursor: pointer;
+    user-select: none;
+}
+
+.v-s-i-1-i {
+    display: flex;
+    /* width: 0 !important;
+    height: 0 !important; */
+    overflow: hidden;
+    transition: 0.5s !important;
+    opacity: 0;
+}
+
+.v-s-i-1-p:hover .v-s-i-1-i {
+    /* width: 100% !important;
+    height: 100% !important; */
+    opacity: 1;
+}
+
+.v-s-i-2-i {
+    display: flex;
+    /* width: 0 !important;
+    height: 0 !important; */
+    overflow: hidden;
+    transition: 0.5s !important;
+    opacity: 0;
+}
+
+.v-s-i-2-p:hover .v-s-i-2-i {
+    /* width: 100% !important;
+    height: 100% !important; */
+    opacity: 1;
+}
+
+.v-s-i-3-i {
+    display: flex;
+    /* width: 0 !important;
+    height: 0 !important; */
+    overflow: hidden;
+    transition: 0.5s !important;
+    opacity: 0;
+}
+
+.v-s-i-3-p:hover .v-s-i-3-i {
+    /* width: 100% !important;
+    height: 100% !important; */
+    opacity: 1;
+}
+
+.v-s-i-4-i {
+    display: flex;
+    /* width: 0 !important;
+    height: 0 !important; */
+    overflow: hidden;
+    transition: 0.5s !important;
+    opacity: 0;
+}
+
+.v-s-i-4-p:hover .v-s-i-4-i {
+    /* width: 100% !important;
+    height: 100% !important; */
+    opacity: 1;
+}
+
+.v-s-i-5-i {
+    display: flex;
+    /* width: 0 !important;
+    height: 0 !important; */
+    overflow: hidden;
+    transition: 0.5s !important;
+    opacity: 0;
+}
+
+.v-s-i-5-p:hover .v-s-i-5-i {
+    /* width: 100% !important;
+    height: 100% !important; */
+    opacity: 1;
+}
+
+.v-s-i-6-i {
+    display: flex;
+    /* width: 0 !important;
+    height: 0 !important; */
+    overflow: hidden;
+    transition: 0.5s !important;
+    opacity: 0;
+}
+
+.v-s-i-6-p:hover .v-s-i-6-i {
+    /* width: 100% !important;
+    height: 100% !important; */
+    opacity: 1;
+}
+
+.v-s-i-7-i {
+    display: flex;
+    /* width: 0 !important;
+    height: 0 !important; */
+    overflow: hidden;
+    transition: 0.5s !important;
+    opacity: 0;
+}
+
+.v-s-i-7-p:hover .v-s-i-7-i {
+    /* width: 100% !important;
+    height: 100% !important; */
+    opacity: 1;
+}
+
+.v-s-i-8-i {
+    display: flex;
+    /* width: 0 !important;
+    height: 0 !important; */
+    overflow: hidden;
+    transition: 0.5s !important;
+    opacity: 0;
+}
+
+.v-s-i-8-p:hover .v-s-i-8-i {
+    /* width: 100% !important;
+    height: 100% !important; */
+    opacity: 1;
+}
+
+.student-review-section {
+    width: 100vw;
+    /* min-height: 100vh; */
+    height: fit-content;
+    background-color: #f3fdec;
+}
+
+.review-con {
+    min-height: 300px;
+    height: fit-content;
+    /* background-color: red; */
+}
+
+.join-volunteering-movement {
+    width: 100vw;
+    height: fit-content;
+    background-color: #f3fdec;
+}
+
+.join-volunteering-movement .container {
+    border-radius: 1.5rem;
+}
+
+/* .review-card{
+    background-image: url('../assets/images/quote.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+/* .faq-section {
+    width: 100vw;
+    height: fit-content;
+    background-color: #f3fdec !important;
+} */
+
+.info-section {
+    background-color: white;
+}
+
+
+  #myanmar-map path {
+    stroke: #88c659;
+    stroke-width: 1.5;
+    fill: #f8fff2;
+    transition: fill 120ms ease, transform 120ms ease;
+    cursor: pointer;
+  }
+
+  #myanmar-map path:hover,
+  #myanmar-map path:focus {
+    fill: #c9ec9b;
+  }
+
+  #myanmar-map path:active {
+    transform: scale(0.995);
+  }

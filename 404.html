@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Looks Like We're Lost</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7; 
+        }
+        .color-main {
+            color: #88C659;
+        }
+        .border-main {
+            border-color: #88C659;
+        }
+        .shadow-custom {
+            box-shadow: 0 10px 15px -3px rgba(136, 198, 89, 0.2), 0 4px 6px -2px rgba(136, 198, 89, 0.1);
+        }
+        .message{
+            color: #5D894A !important;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main Centered Container -->
+    <div class="flex items-center justify-center min-h-screen p-6 sm:p-10">
+        <div class="max-w-5xl w-full flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-20 bg-white p-10 sm:p-16 rounded-3xl shadow-xl shadow-custom">
+            
+            <!-- Illustration Section (Left) - Random Animal Image -->
+            <div class="w-full md:w-1/3 flex justify-center order-1 md:order-1">
+                <div class="w-64 h-64 sm:w-80 sm:h-80 p-4">
+                    <!-- The image source will be set by the JavaScript below -->
+                    <img 
+                        id="animal-image"
+                        src="" 
+                        alt="A friendly animal confused by the 404 error." 
+                        class="w-full h-full object-contain rounded-xl transition duration-500 ease-in-out"
+                    >
+                </div>
+            </div>
+
+            <!-- Text Content Section (Right) -->
+            <div class="w-full md:w-2/3 text-center md:text-left space-y-6 order-2 md:order-2">
+                
+                <!-- Large 404 Number -->
+                <div class="text-[6rem] sm:text-[10rem] lg:text-[12rem] font-extrabold leading-none color-main">404</div>
+                
+                <!-- Main Message -->
+                <p class="message text-xl font-bold uppercase tracking-widest text-white-800">Looks like you're lost</p>
+                
+                <!-- Subtext -->
+                <p class="message text-lg text-gray-500">The page you are looking for is not available!</p>
+
+                <!-- Call to Action Link -->
+                <a href="./home.html" class="inline-flex items-center pt-2 text-lg font-bold uppercase transition-all duration-300 rounded-lg hover:opacity-80 color-main">
+                    Go to home
+                    <!-- Arrow Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animalImages = [
+                "Images/OwlGoodBoy.png",
+                "Images/MonkeyGoodBoy.png",
+                "Images/FrogGoodBoy.png",
+                "Images/PigGoodBoy.png",
+                "Images/CowGoodBoy.png",
+            ];
+
+            //Select a random index
+            const randomIndex = Math.floor(Math.random() * animalImages.length);
+
+            //Get the random file path
+            const randomImagePath = animalImages[randomIndex];
+
+            //Find the image element by its ID
+            const imageElement = document.getElementById('animal-image');
+            
+            //Set the source (src) attribute to the randomly selected image path
+            if (imageElement) {
+                imageElement.src = randomImagePath;
+            }
+        });
+    </script>
+</body>
+</html>
