@@ -68,13 +68,13 @@ async function validateCourseEnrolled() {
         }
     }
     if (isValid === false) {
-        window.location.href = "../mycourses.html";
+        window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
     }
 }
 
 
 if (currentCourseId == "") {
-    window.location.href = "../mycourses.html";
+    window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
 }
 
 const courseFSdocRef = doc(db, "course-data", currentCourseId);
@@ -84,7 +84,7 @@ if (courseData.exists()) {
 } else {
     showToast('Error!', 3000, "toastContainer", "red", "white");
     setTimeout(() => {
-        window.location.href = "../mycourses.html";
+        window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
     }, 3000);
 }
 
@@ -227,7 +227,7 @@ document.addEventListener('click', function (event) {
     // const numOfChap = btn.getAttribute("numOfChap");
     // enrollCourse(buttonId, numOfChap);
     // document.getElementById('quizContainer').style.display = "block";
-    window.location.href = `../quiz/index.html#${selectedLesson}cend${currentCourseId}`;
+    window.location.href = `https://phonethonfrank.github.io/SpiritBound/quiz/index.html#${selectedLesson}cend${currentCourseId}`;
 });
 
 
