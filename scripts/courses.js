@@ -216,7 +216,7 @@ async function enrollCourse(courseId, numOfChap) {
         if (alreadyThere === true) {
             enrollBtn.disabled = false;
             enrollBtn.innerHTML = "Enroll";
-            window.location.href = "../mycourses.html";
+            window.location.href = "./mycourses.html";
         }
         else {
             updatedCourses.push(courseToBeAdded);
@@ -232,7 +232,7 @@ async function enrollCourse(courseId, numOfChap) {
             );
             enrollBtn.disabled = false;
             enrollBtn.innerHTML = "Enroll";
-            window.location.href = "../mycourses.html";
+            window.location.href = "./mycourses.html";
         }
     }
     else {
@@ -249,7 +249,7 @@ async function enrollCourse(courseId, numOfChap) {
         );
         enrollBtn.disabled = false;
         enrollBtn.innerHTML = "Enroll";
-        window.location.href = "../mycourses.html";
+        window.location.href = "./mycourses.html";
     }
 
 }
@@ -335,7 +335,7 @@ async function letAiSuggestCourses() {
         const courseElement = `
        <div class="col-10 col-sm-6 col-md-4 px-3 my-3 course-card">
     <div class="card h-100 text-start text-success" style="width: 100%; overflow: hidden;">
-        <img src="../assets/images/courses/${doc.data().image}.jpg" class="card-img-top"
+        <img src="./assets/images/courses/${doc.data().image}.jpg" class="card-img-top"
             alt="${doc.data().description}">
         <div class="card-body">
             <h5 class="card-title">${doc.data().title}</h5>
