@@ -36,7 +36,7 @@ async function tryExportUserData(maxAttempts = 5, delayMs = 500) {
         }
         else {
             const courseElements = document.getElementsByClassName('course-card');
-            window.location.href = "../mycourses.html";
+            window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
         }
         // updateEditInputs();
         // console.log("User data:", userData);
