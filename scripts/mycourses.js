@@ -105,7 +105,7 @@ document.addEventListener('click', function (event) {
 
     const buttonId = btn.id;
 
-    window.location.href = `./lesson.html#${buttonId}`;
+    window.location.href = `../lesson.html#${buttonId}`;
 });
 
 const contactUsModal = new bootstrap.Modal(document.getElementById('contactUsModal'));
