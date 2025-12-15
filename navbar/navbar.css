@@ -518,3 +518,7 @@ body {
 .VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
     display: none !important;
 } 
+
+#township-input::placeholder{
+    color: #76ab4d !important;
+}
