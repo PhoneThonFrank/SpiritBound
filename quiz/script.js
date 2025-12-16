@@ -694,12 +694,12 @@ let bgSoundPlay = true;
 document.getElementById('volumeBtn').addEventListener('click', function () {
     if (bgSoundPlay === true) {
         document.getElementById('volumeBtn').innerHTML = '<i class="bi bi-volume-mute fw-bold" style="font-size: 20px;"></i>';
-        bgmSoundElement.pause();
+        bgmSoundElement.volume = 0;
         bgSoundPlay = false;
     }
     else {
         document.getElementById('volumeBtn').innerHTML = '<i class="bi bi-volume-up fw-bold" style="font-size: 20px;"></i>';
-        bgmSoundElement.play();
+        bgmSoundElement.volume = 1;
         bgSoundPlay = true;
     }
 });
