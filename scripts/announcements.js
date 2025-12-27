@@ -69,7 +69,7 @@ function createEventCardElement(event) {
               <a href="#" class="m-2 btn btn-success detailShowBtn" data-id="${event.id}">
                 <i class="bi bi-info-circle"></i> Details
               </a>
-             <span class="join-event-btn-cover"> <button id="event${event.id}" event-name="${event.title}" event-id="${event.id}" class="m-2 btn btn-success join-event-btn">Join Event</button></span>
+             <span class="join-event-btn-cover"> <button id="event${event.id}" event-name="${event.title}" event-id="${event.id}" event-date="${event.date}" class="m-2 btn btn-success join-event-btn">Join Event</button></span>
             </div>
             <small class="text-success">Posted • ${dateDisplay}</small>
           </div>
@@ -435,23 +435,43 @@ document.addEventListener('click', async function (event) {
 });
 
 function updateJoinEventBtns() {
-    const joinEvenetBtns = document.getElementsByClassName('join-event-btn-cover');
-    if (localStorage.getItem('isLoggedIn') === "false") {
-        // console.log(joinEvenetBtns[0]);
+    const joinEventCovers = document.getElementsByClassName('join-event-btn-cover');
 
-        for (let i = 0; i < joinEvenetBtns.length; i++) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-            joinEvenetBtns[i].children[0].disabled = true;
-            joinEvenetBtns[i].setAttribute("data-bs-custom-class", "custom-tooltip");
-            joinEvenetBtns[i].setAttribute("data-bs-toggle", "tooltip");
-            joinEvenetBtns[i].setAttribute("data-bs-title", "Login to join event");
-            // joinEvenetBtns[i].innerHTML = "Login to join event";
+    for (let i = 0; i < joinEventCovers.length; i++) {
+        const cover = joinEventCovers[i];
+        const btn = cover.querySelector('.join-event-btn');
+        if (!btn) continue;
 
+        const eventDateAttr = btn.getAttribute('event-date');
+        if (eventDateAttr) {
+            const eventDateObj = new Date(eventDateAttr + 'T00:00');
+            eventDateObj.setHours(0, 0, 0, 0);
+            if (eventDateObj < today) {
+                btn.disabled = true;
+                btn.innerHTML = 'Completed';
+                
+                cover.removeAttribute('data-bs-toggle');
+                cover.removeAttribute('data-bs-title');
+                continue;
+            }
+        }
+
+        if (localStorage.getItem('isLoggedIn') === "false") {
+            btn.disabled = true;
+            cover.setAttribute("data-bs-custom-class", "custom-tooltip");
+            cover.setAttribute("data-bs-toggle", "tooltip");
+            cover.setAttribute("data-bs-title", "Login to join event");
+        } else {
+            // ensure tooltip attributes removed for logged in users
+            cover.removeAttribute('data-bs-toggle');
+            cover.removeAttribute('data-bs-title');
         }
     }
 
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el))
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 }
 
 
@@ -482,7 +502,7 @@ async function getEventJoinList() {
 
 function updateJoinEventBtnsBtns() {
     const joinEvenetBtns = document.getElementsByClassName('join-event-btn');
-    console.log(joinEvenetBtns);
+    // console.log(joinEvenetBtns);
 
     for (let i = 0; i < joinEvenetBtns.length; i++) {
         if (joinedEventIds.includes(joinEvenetBtns[i].getAttribute("event-id")) === true) {

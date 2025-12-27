@@ -31,7 +31,7 @@ const userAuth = onAuthStateChanged;
 const loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
 
 if (localStorage.getItem('isLoggedIn') === "false") {
-    window.location.href = "./home.html";
+    window.location.href = "../home.html";
 }
 
 

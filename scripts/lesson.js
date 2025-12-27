@@ -36,7 +36,7 @@ async function tryExportUserData(maxAttempts = 5, delayMs = 500) {
         }
         else {
             const courseElements = document.getElementsByClassName('course-card');
-            window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
+            window.location.href = "../mycourses.html";
         }
         // updateEditInputs();
         // console.log("User data:", userData);
@@ -68,13 +68,13 @@ async function validateCourseEnrolled() {
         }
     }
     if (isValid === false) {
-        window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
+        window.location.href = "../mycourses.html";
     }
 }
 
 
 if (currentCourseId == "") {
-    window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
+    window.location.href = "../mycourses.html";
 }
 
 const courseFSdocRef = doc(db, "course-data", currentCourseId);
@@ -84,7 +84,7 @@ if (courseData.exists()) {
 } else {
     showToast('Error!', 3000, "toastContainer", "red", "white");
     setTimeout(() => {
-        window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
+        window.location.href = "../mycourses.html";
     }, 3000);
 }
 
@@ -227,7 +227,7 @@ document.addEventListener('click', function (event) {
     // const numOfChap = btn.getAttribute("numOfChap");
     // enrollCourse(buttonId, numOfChap);
     // document.getElementById('quizContainer').style.display = "block";
-    window.location.href = `https://phonethonfrank.github.io/SpiritBound/quiz/index.html#${selectedLesson}cend${currentCourseId}`;
+    window.location.href = `../quiz/index.html#${selectedLesson}cend${currentCourseId}`;
 });
 
 
@@ -236,7 +236,7 @@ document.getElementById('exitButton').addEventListener('click', function () {
         document.getElementById('loadingText').innerText = "Exiting Learning Mode";
         customLoadingScreen.style.display = "flex";
         setTimeout(() => {
-            window.location.href = "https://phonethonfrank.github.io/SpiritBound/mycourses.html";
+            window.location.href = "../mycourses.html";
         }, 3000);
     }
 });

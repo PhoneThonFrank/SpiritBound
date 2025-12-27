@@ -31,7 +31,7 @@ async function tryExportUserData(maxAttempts = 5, delayMs = 500) {
                    renderEnrolledCourses();
         }
         else {
-            window.location.href = "./courses.html";
+            window.location.href = "../courses.html";
         }
         
  
@@ -67,7 +67,7 @@ async function renderEnrolledCourses() {
                                <div class="col-10 col-sm-6 col-md-4 px-3 my-3">
                         <div class="card overflow-hidden h-100">
                             <div class="card-body p-0">
-                                <img src="./assets/images/courses/${doc.data().image}.jpg" alt="${doc.data().description}" class="card-img-top">
+                                <img src="../assets/images/courses/${doc.data().image}.jpg" alt="${doc.data().description}" class="card-img-top">
                             </div>
                             <div class="card-footer pb-3">
                                 <h5 class="text-success fw-bold mb-0">${doc.data().title}</h5>
@@ -105,7 +105,7 @@ document.addEventListener('click', function (event) {
 
     const buttonId = btn.id;
 
-    window.location.href = `https://phonethonfrank.github.io/SpiritBound/lesson.html#${buttonId}`;
+    window.location.href = `../lesson.html#${buttonId}`;
 });
 
 const contactUsModal = new bootstrap.Modal(document.getElementById('contactUsModal'));
